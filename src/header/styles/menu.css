@@ -1,0 +1,15 @@
+.bg-menu {
+  background-color: var(--primary-1);
+  padding-top: 20px;
+  padding-bottom: 28px;
+}
+
+.nav-link {
+  color: var(--neutral-100) !important;
+  text-decoration: none !important;
+}
+
+.navbar-brand {
+  color: var(--neutral-100) !important;
+  text-decoration: none !important;
+}

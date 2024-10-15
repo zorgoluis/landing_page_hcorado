@@ -1,0 +1,15 @@
+.header-contact-link {
+  color: var(--neutral-100);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-right: 56px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.25em;
+  text-decoration: none;
+}
+
+.header-contact-wrapper {
+  align-items: center;
+  display: flex;
+}
