@@ -1,6 +1,7 @@
 import { Container, ThemeProvider } from 'react-bootstrap'
 import './App.css'
 import Head from './header/head'
+import BodySections from './body/body_sections'
 
 function App() {
 
@@ -11,6 +12,7 @@ function App() {
     >
       <div>
         <Head />
+        <BodySections />
       </div>
     </ThemeProvider>
   )

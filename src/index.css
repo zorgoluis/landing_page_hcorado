@@ -48,6 +48,17 @@ h1 {
   line-height: 1.059em !important;
 }
 
+h2 {
+  color: var(--neutral-800);
+  letter-spacing: .01em;
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-family: DM Serif Display, sans-serif;
+  font-size: 38px;
+  font-weight: 400;
+  line-height: 1.158em;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

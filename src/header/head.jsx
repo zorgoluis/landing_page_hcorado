@@ -32,7 +32,7 @@ const Head = () => {
           <Row className='justify-content-md-center'>
             <Col md="5" className='content-left-hero'>
               <div className='subtitle'>Dra. Heydi Corado</div>
-              <h1 className='title'>A dedicated doctor you can trust</h1>
+              <h1 className='title_head'>A dedicated doctor you can trust</h1>
               <p className='paragraph'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum eget vel, nunc nulla feugiat. Metus ut ultricies faucibus.</p>
               <a className='button-primary bg-secondary-1 w-button'>
                 Book an Appointment
