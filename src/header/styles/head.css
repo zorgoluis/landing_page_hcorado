@@ -1,3 +1,9 @@
+.header {
+  background-color: var(--primary-1);
+  padding-top: 20px;
+  padding-bottom: 28px;
+}
+
 .container_head {
   background-color: var(--primary-1);
 }

@@ -1,0 +1,55 @@
+.section.home-services {
+  background-color: var(--neutral-200);
+  overflow: hidden;
+}
+
+.subtitle.color-primary-1 {
+  color: var(--primary-1);
+}
+
+.title.home-services, .title.home-video, .title.testimonials {
+  margin-bottom: 0;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.top-content.home-services, .top-content.testimonials {
+  margin-bottom: 40px;
+}
+
+.home-services-slider {
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  margin-bottom: 48px;
+  display: flex;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image.card-service {
+  width: 120px;
+  height: 120px;
+  min-width: 120px;
+  border-radius: 1000px;
+  margin-bottom: 25px;
+}
+
+.paragraph.card-service {
+  margin-bottom: 24px;
+}
+
+.card-body.service {
+  padding: 48px 30px 56px;
+}

@@ -10,7 +10,7 @@ import doctor from '../assets/601862fd6baef26ae8f5fa5f_image-home-hero-doctor-te
 const Head = () => {
   return (
     <>
-      <section className='container_head'>
+      <section className='container-default header home-head w-container container_head'>
         <Row>
           <Col md="12">
             <InfoTop />
