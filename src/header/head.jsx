@@ -9,45 +9,56 @@ import doctor from '../assets/601862fd6baef26ae8f5fa5f_image-home-hero-doctor-te
 
 const Head = () => {
   return (
-    <section
-      className='container_head'
-    >
-      <Row>
-        <Col md="12">
-          <InfoTop />
-        </Col>
-      </Row>
-      <Row>
-        <Col md="12">
-          <div className='divider header-divider'></div>
-        </Col>
-      </Row>
-      <Row>
-        <Col md={12}>
-          <MenuHead/>
-        </Col>
-      </Row>
-      <Row>
-        <Col md="12">
-          <Row className='justify-content-md-center'>
-            <Col md="5" className='content-left-hero'>
-              <div className='subtitle'>Dra. Heydi Corado</div>
-              <h1 className='title_head'>A dedicated doctor you can trust</h1>
-              <p className='paragraph'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum eget vel, nunc nulla feugiat. Metus ut ultricies faucibus.</p>
-              <a className='button-primary bg-secondary-1 w-button'>
-                Book an Appointment
-              </a>
-            </Col>
-            <Col md="5" className='content-rigth-hero'>
-              <div className='image-wrapper home-hero'>
-                <img className='image' src={doctor}/>
-              </div>
-              <img className='img_svg' src={finder_svg} />
-            </Col>
-          </Row>
-        </Col>
-      </Row>
-    </section>
+    <>
+      <section className='container_head'>
+        <Row>
+          <Col md="12">
+            <InfoTop />
+          </Col>
+        </Row>
+        <Row>
+          <Col md="12">
+            <div className='divider header-divider'></div>
+          </Col>
+        </Row>
+        <Row>
+          <Col md={12}>
+            <MenuHead/>
+          </Col>
+        </Row>
+      </section>
+      <section className='home-doctor'>
+        <div className='container-default'>
+          <div className='home-doctor-wrapper'>
+            <Row>
+              <Col md="12">
+                <div className='content-info home-doctor'>
+                  <Row className='justify-content-between'>
+                    <Col lg="5" md="12" sm="12" xs="12" className='content-left-hero'>
+                      <div className='subtitle'>Dra. Heydi Corado</div>
+                      <h1 className='title home-doctor'>A dedicated doctor you can trust</h1>
+                      <p className='paragraph home-doctor'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum eget vel, nunc nulla feugiat. Metus ut ultricies faucibus.</p>
+                      <a className='button-primary bg-secondary-1 w-button'>
+                        Book an Appointment
+                      </a>
+                    </Col>
+                    <Col lg="6" md="12" sm="12" xs="12" className='d-flex justify-content-center'>
+                      <div className='content-rigth-doctor'>
+                        <div className='image-wrapper home-doctor'>
+                          <img className='image home-doctor' src={doctor}/>
+                        </div>
+                        <img className='img_svg bg' src={finder_svg} />
+                      </div>
+                    </Col>
+                  </Row>
+                </div>
+              </Col>
+            </Row>
+          </div>
+        </div>
+        <div className='bg home-doctor container_head'></div>
+      </section>
+    </>
   )
 }
 

@@ -7,8 +7,8 @@ function App() {
 
   return (
     <ThemeProvider
-      breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'xxs']}
-      minBreakpoint="xxs"
+      breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs']}
+      minBreakpoint="xl"
     >
       <div>
         <Head />
