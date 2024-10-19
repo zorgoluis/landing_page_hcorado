@@ -1,0 +1,115 @@
+.section.home-services {
+  background-color: var(--neutral-200);
+  overflow: hidden;
+}
+
+.subtitle.color-primary-1 {
+  color: var(--primary-1);
+}
+
+.title.home-services, .title.home-video, .title.testimonials {
+  margin-bottom: 0;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.top-content.home-services, .top-content.testimonials {
+  margin-bottom: 40px;
+}
+
+.home-services-slider {
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  margin-bottom: 48px;
+  display: flex;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image.card-service {
+  width: 120px;
+  height: 120px;
+  min-width: 120px;
+  border-radius: 1000px;
+  margin-bottom: 25px;
+}
+
+.paragraph.card-service {
+  margin-bottom: 24px;
+}
+
+.card-body.service {
+  padding: 48px 30px 56px;
+}
+
+.home-services-button-previous {
+  width: auto;
+  border: 1px solid var(--neutral-400);
+  color: var(--neutral-800);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 1000px;
+  padding: 22px 40px;
+  font-size: 16px;
+  line-height: 1.25em;
+  transition: color .35s, border-color .35s;
+  top: -106px;
+  bottom: auto;
+  left: auto;
+  right: 172px;
+}
+
+.home-services-button-next {
+  width: auto;
+  border: 1px solid var(--neutral-400);
+  color: var(--neutral-800);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 1000px;
+  padding: 22px 40px;
+  font-size: 16px;
+  line-height: 1.25em;
+  transition: color .35s, border-color .35s;
+  top: -106px;
+  bottom: auto;
+  left: auto;
+  right: 172px;
+}
+
+.home-services-button-next:hover {
+  border-color: var(--primary-1);
+  color: var(--primary-1);
+  cursor: pointer;
+}
+
+.home-services-button-previous:hover {
+  border-color: var(--primary-1);
+  color: var(--primary-1);
+  cursor: pointer;
+}
+
+.link-underline {
+  display: none;
+} 
+
+.card-transform:hover {
+  transform: scale(1.05, 1.05);
+  cursor: pointer;
+  .link-underline {
+    display: block;
+  }
+}

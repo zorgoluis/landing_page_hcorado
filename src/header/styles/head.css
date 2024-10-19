@@ -1,3 +1,9 @@
+.header {
+  background-color: var(--primary-1);
+  padding-top: 20px;
+  padding-bottom: 28px;
+}
+
 .container_head {
   background-color: var(--primary-1);
 }
@@ -16,7 +22,13 @@
 }
 
 .content-left-hero {
-  margin-top: 80px !important;
+  margin-top: 80px;
+  z-index: 1;
+}
+
+.content-info.home-doctor {
+  padding-top: 124px;
+  padding-bottom: 0;
 }
 
 .subtitle {
@@ -29,11 +41,11 @@
   line-height: 1.125em;
 }
 
-.title_head {
+.title.home-doctor {
   color: var(--neutral-100) !important;
 }
 
-.paragraph {
+.paragraph.home-doctor {
   color: var(--neutral-100);
   margin-bottom: 35px;
 }
@@ -45,7 +57,6 @@
 }
 
 .img_svg {
-  transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
   opacity: 1;
   transform-style: preserve-3d;
 
@@ -53,12 +64,7 @@
   left: -115px;
 }
 
-.image-wrapper {
-  position: relative;
-  overflow: hidden;
-}
-
-.image-wrapper, .home-hero {
+.image-wrapper.home-doctor {
   z-index: 1;
   min-height: 734px;
   align-items: center;
@@ -66,18 +72,75 @@
   position: relative;
 }
 
-img {
-  max-width: 100%;
-  vertical-align: middle;
-  display: inline-block;
-}
-
-.image {
+.image.home-doctor {
   object-fit: cover;
 }
 
-.content-rigth-hero {
+.content-rigth-doctor {
+  width: 100%;
   align-items: center;
   display: flex;
   position: relative;
+}
+
+.bg.home-doctor {
+  height: 796px;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+section.home-doctor {
+  position: relative;
+  background-color: var(--neutral-200);
+}
+
+.home-doctor-wrapper {
+  z-index: 1;
+  justify-content: space-between;
+  display: flex;
+  position: relative;
+}
+
+.home-doctor-wrapper-col {
+
+}
+
+@media screen and (max-width: 991px) {
+
+  .content-left-hero {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 60px;
+  }
+
+  .content-rigth-doctor {
+      max-width: 595px;
+      align-items: flex-start;
+  }
+
+  .bg.content-rigth-doctor {
+    max-width: 100%;
+  }
+
+  .image-wrapper.home-doctor {
+    min-height: auto;
+  }
+  
+  .content-info.home-doctor {
+    padding-top: 64px;
+  }
+
+  .container-default {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .home-doctor-wrapper-col {
+    text-align: center;
+  }
+
+  .bg.home-doctor {
+    height: 90%;
+  }
 }
