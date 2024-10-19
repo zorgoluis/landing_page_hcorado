@@ -2,6 +2,7 @@ import React from 'react'
 import FeaturesSections from './UI/features';
 import AboutSection from './UI/about';
 import ServiceSection from './UI/service';
+import CitaSection from './UI/cita';
 
 const BodySections = () => {
   return (
@@ -9,6 +10,7 @@ const BodySections = () => {
       <FeaturesSections />
       <AboutSection />
       <ServiceSection />
+      <CitaSection />
     </>
   )
 }

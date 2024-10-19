@@ -1,7 +1,7 @@
 #root {
   min-height: 100%;
   margin: 0 0;
-  min-width: 100vw;
+  /* min-width: 100vw; */
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -153,6 +153,11 @@ img {
   height: 2px;
   background-color: var(--primary-1);
   margin-top: 9px;
+}
+
+.arrow-left, .arrow-right {
+  font-family: Icons Doctor Template, sans-serif;
+  display: inline-block;
 }
 
 @media screen and (max-width: 479px) {

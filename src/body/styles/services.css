@@ -53,3 +53,63 @@
 .card-body.service {
   padding: 48px 30px 56px;
 }
+
+.home-services-button-previous {
+  width: auto;
+  border: 1px solid var(--neutral-400);
+  color: var(--neutral-800);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 1000px;
+  padding: 22px 40px;
+  font-size: 16px;
+  line-height: 1.25em;
+  transition: color .35s, border-color .35s;
+  top: -106px;
+  bottom: auto;
+  left: auto;
+  right: 172px;
+}
+
+.home-services-button-next {
+  width: auto;
+  border: 1px solid var(--neutral-400);
+  color: var(--neutral-800);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 1000px;
+  padding: 22px 40px;
+  font-size: 16px;
+  line-height: 1.25em;
+  transition: color .35s, border-color .35s;
+  top: -106px;
+  bottom: auto;
+  left: auto;
+  right: 172px;
+}
+
+.home-services-button-next:hover {
+  border-color: var(--primary-1);
+  color: var(--primary-1);
+  cursor: pointer;
+}
+
+.home-services-button-previous:hover {
+  border-color: var(--primary-1);
+  color: var(--primary-1);
+  cursor: pointer;
+}
+
+.link-underline {
+  display: none;
+} 
+
+.card-transform:hover {
+  transform: scale(1.05, 1.05);
+  cursor: pointer;
+  .link-underline {
+    display: block;
+  }
+}
