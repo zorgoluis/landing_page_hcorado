@@ -1,0 +1,132 @@
+.container-medium-682px.home-video {
+  text-align: center;
+  margin-bottom: 29px;
+}
+
+.title.home-services, .title.home-video, .title.testimonials {
+  margin-bottom: 0;
+}
+
+.home-video-wrapper {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  position: relative;
+}
+
+.image-wrapper.home-video {
+  max-width: 1055px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.home-video-button {
+  width: 124px;
+  height: 124px;
+  min-width: 124px;
+  background-color: var(--secondary-1);
+  border-radius: 1000px;
+  justify-content: center;
+  align-items: center;
+  transition-property: box-shadow;
+  display: flex;
+  position: absolute;
+  left: 291.5px;
+  overflow: hidden;
+  box-shadow: 0 24px 44px rgba(0, 0, 0, .24);
+}
+
+.card.bg-neutral-200 {
+  background-color: var(--neutral-200);
+  border-color: var(--neutral-200);
+}
+
+.card.home-video {
+  max-width: 45%;
+  background-color: var(--neutral-200);
+  padding: 68px 34px 68px 48px;
+  position: absolute;
+  right: 0;
+}
+
+.paragraph.card-home-video {
+  margin-bottom: 17px;
+}
+
+.card-home-video-features-grid {
+  grid-row-gap: 10px;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr;
+  margin-bottom: 37px;
+}
+
+.card-home-video-feature-wrapper {
+  color: var(--neutral-800);
+  align-items: center;
+  display: flex;
+}
+
+.card-home-video-feature-icon {
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 991px) {
+  .home-video-wrapper {
+      flex-direction: column;
+  }
+
+  .home-video-button {
+    left: auto;
+  }
+
+  .card.home-video {
+    z-index: 1;
+    max-width: 754px;
+    margin-top: -99px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 60px 40px;
+    position: relative;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .container-medium-682px.home-video {
+      text-align: left;
+      margin-left: 0;
+  }
+
+  .home-video-button {
+    width: 114px;
+    height: 114px;
+    min-width: 114px;
+  }
+
+  .card.home-video {
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 40px 30px 50px;
+  }
+
+  .card-home-video-features-grid {
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .home-video-button {
+      width: 27%;
+      height: 47%;
+      min-width: 27%;
+  }
+
+  .card.home-video {
+    padding: 30px 20px 40px;
+  }
+
+  .card-home-video-features-grid {
+    margin-bottom: 20px;
+  }
+}

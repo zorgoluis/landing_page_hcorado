@@ -37,6 +37,11 @@ section {
   justify-content: center;
 }
 
+.w-inline-block {
+  max-width: 100%;
+  display: inline-block;
+}
+
 .w-button {
   color: #fff;
   line-height: inherit;
@@ -91,6 +96,15 @@ section {
 .image-wrapper {
   position: relative;
   overflow: hidden;
+}
+
+.w-layout-grid {
+  grid-row-gap: 16px;
+  grid-column-gap: 16px;
+  grid-template-rows: auto auto;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-columns: 1fr;
+  display: grid;
 }
 
 h1 {
@@ -160,7 +174,54 @@ img {
   display: inline-block;
 }
 
+.container-medium-682px {
+  max-width: 682px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.filter {
+  opacity: .57;
+  background-color: #071312;
+  position: absolute;
+  top: 0%;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+}
+
+@media screen and (max-width: 991px) {
+  .section {
+      padding-top: 135px;
+      padding-bottom: 135px;
+  }
+
+  .container-default {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .section {
+      padding-top: 101px;
+      padding-bottom: 101px;
+  }
+
+  h3 {
+    font-size: 22px;
+  }
+}
+
 @media screen and (max-width: 479px) {
+
+  .section {
+    padding-top: 76px;
+    padding-bottom: 76px;
+  }
+
   .button-primary {
       padding-left: 16px;
       padding-right: 16px;
@@ -170,5 +231,9 @@ img {
   .container-default {
     padding-left: 16px;
     padding-right: 16px;
+  }
+
+  h3 {
+    font-size: 20px;
   }
 }
