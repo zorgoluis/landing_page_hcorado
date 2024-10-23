@@ -62,10 +62,10 @@ const ListMenu = () => {
                 </p>
               </li>
               <li className='footer-nav-link-item'>
-                <a className='footer-nav-link'>contact@doc.com</a>
+                <a className='footer-nav-link' href='mailto:heydicorados@gmail.com'>heydicorados@gmail.com</a>
               </li>
               <li className='footer-nav-link-item'>
-                <a className='footer-nav-link'>(487) 120 - 7980</a>
+                <a className='footer-nav-link' href='tel:9612657825'>961-265-7825</a>
               </li>
             </ul>
           </div>

@@ -1,7 +1,7 @@
 #root {
   min-height: 100%;
   margin: 0 0;
-  /* min-width: 100vw; */
+  min-width: 100%;
 }
 
 @media (prefers-reduced-motion: no-preference) {

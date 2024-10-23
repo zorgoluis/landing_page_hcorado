@@ -33,8 +33,8 @@ const VideoSection = () => {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tristique libero viverra ultricies commodo.
             </p>
             <div className='w-layout-grid card-home-video-features-grid'>
-              {listCheck.map((item) => (
-                <div className='card-home-video-feature-wrapper'>
+              {listCheck.map((item, index) => (
+                <div key={"card-video-"+index} className='card-home-video-feature-wrapper'>
                   <img src={icon_check} className='card-home-video-feature-icon' />
                   <div>{item.title}</div>
                 </div>

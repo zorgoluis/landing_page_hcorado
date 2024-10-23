@@ -144,3 +144,11 @@ section.home-doctor {
     height: 90%;
   }
 }
+
+@media screen and (max-width: 767px) {
+  .content-left-hero {
+    max-width: none;
+    text-align: left;
+    margin-bottom: 40px;
+  }
+}

@@ -34,8 +34,8 @@ const LocatedSection = () => {
         <div className='w-dyn-list'>
           <div role="list" className='home-blog-grid w-dyn-items'>
             {
-              articles.map((art) => (
-                <div className='blog-article-item w-dyn-item'>
+              articles.map((art, index) => (
+                <div key={"art-card"+index} className='blog-article-item w-dyn-item'>
                   <div className='blog-article-item-wrapper'>
                     <a className='image-wrapper blog-article-item-image w-inline-block'>
                       <img src={img_art_1} className='image blog-article-item-image' />
