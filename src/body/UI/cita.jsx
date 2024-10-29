@@ -9,18 +9,23 @@ const CitaSection = () => {
     <section className='section cta'>
       <div className='container-default w-container'>
         <div className='split-content cta-left'>
-          <div className='subtitle'>Book an appointment</div>
-          <h2 className='title cta'>Schedule a virtual or presential appointment today</h2>
+          <div className='subtitle'>Sabías que...</div>
+          <h2 className='title cta'>Necesitas una endodoncia cuando:</h2>
           <p className='paragraph cta'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam proin nibh cursus at sed sagittis amet, sed.
+            <ul>
+              <li>Cuando presnetas intenso y persistente</li>
+              <li>Sencibilidad prolongada a temperaturas</li>
+              <li>Cambio de color dental después de un trauma</li>
+              <li>Absceso o fístula en las encias, comúnmente conocido como postemilla</li>
+            </ul>
           </p>
           <div className='_2-buttons'>
             <a className='button-primary bg-secondary-1 cta w-button'>
-              Book an Appointment
+              Galeria de fotos
             </a>
-            <a className='button-secondary light cta w-button'>
+            {/* <a className='button-secondary light cta w-button'>
               About Me
-            </a>
+            </a> */}
           </div>
         </div>
       </div>

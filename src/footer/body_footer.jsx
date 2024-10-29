@@ -11,7 +11,7 @@ const BodyFooter = () => {
             <img className='footer-logo' />
           </a>
           <p className='paragraph-small footer-top-content'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sit amet dolor eiusmod tempor incididunt ut labore et dolore magna.
+            CED PROF 12513439
           </p>
         </div>
         <div className='divider footer-divider-1'></div>

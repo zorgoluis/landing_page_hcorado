@@ -13,7 +13,7 @@ const BodySections = () => {
       <AboutSection />
       <ServiceSection />
       <CitaSection />
-      <VideoSection />
+      {/* <VideoSection /> */}
       <LocatedSection />
     </>
   )

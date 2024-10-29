@@ -16,10 +16,10 @@ const Head = () => {
                 <Row className='justify-content-between'>
                   <Col lg="5" md="12" sm="12" xs="12" className='content-left-hero'>
                     <div className='subtitle'>Dra. Heydi Corado</div>
-                    <h1 className='title home-doctor'>A dedicated doctor you can trust</h1>
-                    <p className='paragraph home-doctor'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum eget vel, nunc nulla feugiat. Metus ut ultricies faucibus.</p>
+                    <h1 className='title home-doctor'>Dedicada a cuidar de tu sonrisa</h1>
+                    <p className='paragraph home-doctor'>Estoy comprometida con tu salud bucal y me aseguraré que tu vista sea una experiencia positiva, confiable, humanizada y accesible</p>
                     <a className='button-primary bg-secondary-1 w-button'>
-                      Book an Appointment
+                      Agendar cita
                     </a>
                   </Col>
                   <Col lg="6" md="12" sm="12" xs="12" className='d-flex justify-content-center'>
