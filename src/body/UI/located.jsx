@@ -1,6 +1,8 @@
 import React from 'react';
 import '../styles/located.css';
-import img_art_1 from '../../assets/image-6-blog-article-doctor-template.jpg';
+import img_art_1 from '../../assets/image-6-blog-article-doctor-template1.jpg';
+import img_art_2 from '../../assets/image-6-blog-article-doctor-template2.jpg';
+import img_art_3 from '../../assets/image-6-blog-article-doctor-template3.jpeg';
 
 const articles = [
   {
@@ -11,12 +13,12 @@ const articles = [
   {
     title: "Our articles on health and personal wellness",
     context: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam proin nibh cursus at sed sagittis amet, sed.",
-    image: img_art_1
+    image: img_art_2
   },
   {
     title: "Our articles on health and personal wellness",
     context: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam proin nibh cursus at sed sagittis amet, sed.",
-    image: img_art_1
+    image: img_art_3
   }
 ]
 
@@ -38,7 +40,7 @@ const LocatedSection = () => {
                 <div key={"art-card"+index} className='blog-article-item w-dyn-item'>
                   <div className='blog-article-item-wrapper'>
                     <a className='image-wrapper blog-article-item-image w-inline-block'>
-                      <img src={img_art_1} className='image blog-article-item-image' />
+                      <img src={art.image} className='image blog-article-item-image' />
                     </a>
                     <a className='card blog-article-item w-inline-block'>
                       <div className='card-blog-article-item-about'>
