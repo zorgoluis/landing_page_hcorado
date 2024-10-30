@@ -7,6 +7,11 @@ import doctor from '../assets/601862fd6baef26ae8f5fa5f_image-home-hero-doctor-te
 import { CardVariants, TextVariant } from '../helper/animation';
 
 const Head = () => {
+
+  const getMessage = () => {
+    return "Hola, quisiera agendar una cita de valoración para el servicio de: "
+  }
+
   return (
     <motion.section 
       className='home-doctor' 
@@ -26,7 +31,7 @@ const Head = () => {
                       <div className='subtitle'>Dra. Heydi Corado</div>
                       <h1 className='title home-doctor'>Dedicada a cuidar de tu sonrisa</h1>
                       <p className='paragraph home-doctor'>Estoy comprometida con tu salud bucal y me aseguraré que tu vista sea una experiencia positiva, confiable, humanizada y accesible</p>
-                      <a className='button-primary bg-secondary-1 w-button' target='_blank' href='https://wa.me/+5219612657825/?text=Hola, buenas tardes, deseo agendar una cita'>
+                      <a className='button-primary bg-secondary-1 w-button' target='_blank' href={`https://wa.me/+5219612657825/?text=Hola,${getMessage()}`}>
                         Agendar cita
                       </a>
                     </motion.div>
