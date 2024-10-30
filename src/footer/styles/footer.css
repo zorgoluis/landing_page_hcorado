@@ -1,0 +1,237 @@
+.footer {
+  background-color: var(--neutral-800);
+  padding-top: 65px;
+  padding-bottom: 34px;
+}
+
+.footer-logo-container {
+  transform-style: preserve-3d;
+  transition-property: transform;
+}
+
+.footer-logo {
+  width: 126px;
+}
+
+.footer-logo-container {
+  transform-style: preserve-3d;
+  transition-property: transform;
+}
+
+.paragraph-small.footer-top-content {
+  max-width: 487px;
+  color: var(--neutral-200);
+}
+
+.divider.footer-divider-1 {
+  margin-top: 65px;
+  margin-bottom: 91px;
+}
+
+.footer-grid {
+  grid-template-rows: auto;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+}
+
+.footer-nav-wrapper {
+  justify-content: space-between;
+  display: flex;
+}
+
+.footer-nav-box {
+  margin-right: 45px;
+}
+
+.title.footer-title {
+  color: var(--neutral-200);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-bottom: 23px;
+  font-family: DM Sans, sans-serif;
+  font-size: 16px;
+  line-height: 1.5em;
+}
+
+.footer-nav-content {
+  display: flex;
+}
+
+.footer-nav-links {
+  margin-bottom: 0;
+  margin-right: 40px;
+  padding-left: 0;
+}
+
+.footer-nav-link {
+  color: var(--neutral-400);
+  white-space: nowrap;
+  font-size: 15px;
+  line-height: 1.6em;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.footer-nav-links.last {
+  margin-right: 0;
+}
+
+.footer-nav-box.last {
+  margin-right: 0;
+}
+
+.paragraph-small.footer-address {
+  max-width: 218px;
+  color: var(--neutral-400);
+}
+
+.footer-social-media-grid {
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  grid-template-rows: auto;
+  grid-template-columns: 38px;
+  grid-auto-columns: auto;
+  grid-auto-flow: column;
+  justify-content: end;
+}
+
+.footer-social-media-link {
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  color: var(--neutral-100);
+  background-color: rgba(255, 255, 255, .15);
+  border-radius: 1000px;
+  justify-content: center;
+  align-items: center;
+  font-family: Icons Doctor Template, sans-serif;
+  font-size: 16px;
+  text-decoration: none;
+  transition: transform .3s, background-color .3s, color .3s;
+  display: flex;
+  overflow: hidden;
+}
+
+.small-print-wrapper {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+
+@media screen and (max-width: 991px) {
+  .footer {
+      padding-top: 60px;
+      padding-bottom: 30px;
+  }
+
+  .divider.footer-divider-1 {
+    margin-top: 50px;
+    margin-bottom: 61px;
+  }
+
+  .footer-grid {
+    grid-row-gap: 40px;
+    grid-template-columns: 1fr;
+  }
+
+  .footer-nav-box {
+    margin-right: 30px;
+  }
+
+  .title.footer-title, .title.footer-newsletter, .title.story {
+    margin-bottom: 20px;
+  }
+
+  .footer-nav-content {
+    flex-wrap: wrap;
+  }
+
+  .small-print-wrapper {
+    flex-wrap: wrap-reverse;
+  }
+
+  .paragraph-small.small-print {
+    margin-bottom: 10px;
+  }
+
+  .footer-social-media-grid {
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .footer {
+    padding-top: 50px;
+  }
+
+  .footer-logo-container {
+      margin-bottom: 20px;
+  }
+
+  .divider.footer-divider-1 {
+    margin-top: 40px;
+    margin-bottom: 51px;
+  }
+
+  .footer-grid {
+    grid-row-gap: 10px;
+  }
+
+  .footer-nav-wrapper {
+    flex-wrap: wrap;
+  }
+
+  .footer-nav-box {
+    margin-bottom: 40px;
+    margin-right: 16px;
+  }
+
+  .small-print-wrapper {
+    flex-flow: column-reverse;
+    align-items: flex-start;
+  }
+
+  .footer-social-media-grid {
+    grid-template-columns: repeat(auto-fit, 38px);
+    grid-auto-flow: row;
+    justify-content: stretch;
+    align-self: stretch;
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .footer {
+    padding-top: 40px;
+    padding-bottom: 25px;
+  }
+
+  .footer-logo-container {
+      margin-bottom: 15px;
+  }
+
+  .divider.footer-divider-1 {
+    margin-top: 30px;
+    margin-bottom: 41px;
+  }
+
+  .footer-grid {
+    justify-items: start;
+  }
+
+  .footer-nav-wrapper {
+    flex-wrap: wrap;
+  }
+
+  .footer-nav-box {
+    margin-bottom: 30px;
+  }
+
+  .title.footer-title, .title.footer-newsletter, .title.story {
+    margin-bottom: 16px;
+  }
+
+  .footer-nav-content {
+    flex-wrap: wrap;
+  }
+}

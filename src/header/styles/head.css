@@ -8,6 +8,11 @@
   background-color: var(--primary-1);
 }
 
+.container-default.home-head {
+  max-width: 100%;
+  margin-bottom: 0px;;
+}
+
 .divider {
   width: 100%;
   height: 1px;
@@ -142,5 +147,13 @@ section.home-doctor {
 
   .bg.home-doctor {
     height: 90%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .content-left-hero {
+    max-width: none;
+    text-align: left;
+    margin-bottom: 40px;
   }
 }

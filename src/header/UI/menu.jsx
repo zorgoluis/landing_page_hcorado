@@ -1,28 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/menu.css';
-import { Container, Nav, Navbar, Offcanvas } from 'react-bootstrap'
+import { Container, Nav, Navbar, Offcanvas } from 'react-bootstrap';
+import icon_root from '../../assets/icons/Imagotipo_negativo.svg';
 
 const MenuHead = () => {
   const  expand= "md";
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+
   return (
     <Navbar expand={expand} className="bg-menu w-nav mb-3">
       <Container fluid>
-        <Navbar.Brand href="#">Navbar Offcanvas</Navbar.Brand>
-        <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
+        <Navbar.Brand href="#">
+        <img
+            src={icon_root}
+            width="80"
+            height="80"
+            className="d-inline-block align-top"
+            alt="React Bootstrap logo"
+          />
+        </Navbar.Brand>
+        <Navbar.Toggle onClick={handleShow} aria-controls={`offcanvasNavbar-expand-${expand}`} />
         <Navbar.Offcanvas
+          onHide={handleClose}
           id={`offcanvasNavbar-expand-${expand}`}
           aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
           placement="end"
         >
           <Offcanvas.Header closeButton>
             <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-              Offcanvas
+              Menú
             </Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>
             <Nav className="justify-content-start flex-grow-1 pe-3">
-              <Nav.Link href="#action1">Home</Nav.Link>
-              <Nav.Link href="#action2">Link</Nav.Link>
+              <Nav.Link href="#inicio">Inicio</Nav.Link>
+              <Nav.Link href="#sobremi">Sobre mi</Nav.Link>
+              <Nav.Link href="#servicios">Servicios</Nav.Link>
+              <Nav.Link href="#sabias-que">Sabias que...</Nav.Link>
+              <Nav.Link href="#ubicame">Ubicame</Nav.Link>
             </Nav>
           </Offcanvas.Body>
         </Navbar.Offcanvas>
