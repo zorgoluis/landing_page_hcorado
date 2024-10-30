@@ -31,7 +31,7 @@ const Head = () => {
                       <div className='subtitle home-doctor'>Dra. Heydi Corado</div>
                       <h1 className='title home-doctor'>Dedicada a cuidar de tu sonrisa</h1>
                       <p className='paragraph home-doctor'>Estoy comprometida con tu salud bucal y me aseguraré que tu visita sea una experiencia positiva, confiable, humanizada y accesible</p>
-                      <a className='button-primary bg-secondary-1 w-button' target='_blank' href={`https://wa.me/+5219612657825/?text=Hola,${getMessage()}`}>
+                      <a className='button-primary bg-secondary-1 w-button' target='_blank' href={`https://wa.me/+5219612657825/?text=${getMessage()}`}>
                         Agendar cita
                       </a>
                     </motion.div>
