@@ -33,7 +33,7 @@ const FeaturesSections = () => {
               <Card border='light'>
                 <Card.Body>
                   <img src={icon_2} className='feature_image'/>
-                  <h2 className='feature_title'>Instalación y tecgnología</h2>
+                  <h2 className='feature_title'>Instalaciones y tecnología</h2>
                   <p className='feature_paragraph-small'>Contamos con tecnología de última generación para diagnósticos precisos y tratamientos efectivos.</p>
                 </Card.Body>
               </Card>
@@ -45,7 +45,7 @@ const FeaturesSections = () => {
                 <Card.Body>
                   <img src={icon_3} className='feature_image'/>
                   <h2 className='feature_title'>Atención personalizada</h2>
-                  <p className='feature_paragraph-small'>Me preocupo por hacerte sentir cómodo y seguro, atendiendo cada duda y acompañandote en todo momento.</p>
+                  <p className='feature_paragraph-small'>Me preocupo por hacerte sentir cómodo y seguro, atendiendo cada duda y acompañándote en todo momento.</p>
                 </Card.Body>
               </Card>
             </motion.div>

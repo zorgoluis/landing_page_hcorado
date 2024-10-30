@@ -28,9 +28,9 @@ const Head = () => {
                 <Row className='justify-content-between'>
                   <Col lg="5" md="12" sm="12" xs="12" className='content-left-hero'>
                     <motion.div variants={TextVariant}>
-                      <div className='subtitle'>Dra. Heydi Corado</div>
+                      <div className='subtitle home-doctor'>Dra. Heydi Corado</div>
                       <h1 className='title home-doctor'>Dedicada a cuidar de tu sonrisa</h1>
-                      <p className='paragraph home-doctor'>Estoy comprometida con tu salud bucal y me aseguraré que tu vista sea una experiencia positiva, confiable, humanizada y accesible</p>
+                      <p className='paragraph home-doctor'>Estoy comprometida con tu salud bucal y me aseguraré que tu visita sea una experiencia positiva, confiable, humanizada y accesible</p>
                       <a className='button-primary bg-secondary-1 w-button' target='_blank' href={`https://wa.me/+5219612657825/?text=Hola,${getMessage()}`}>
                         Agendar cita
                       </a>
