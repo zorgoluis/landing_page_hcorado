@@ -6,15 +6,14 @@ import finder_svg from '../assets/6018589e3ed02ef5bdb1fbe4_bg-home-hero-doctor-t
 import doctor from '../assets/601862fd6baef26ae8f5fa5f_image-home-hero-doctor-template.jpg';
 import { CardVariants, TextVariant } from '../helper/animation';
 
-
 const Head = () => {
   return (
     <motion.section 
       className='home-doctor' 
-      id="inicio" 
+      id="inicio"
       initial="offscreen"
       whileInView="onscreen"
-      viewport={{ once: true, amount: 0.8 }}
+      viewport={{ once: true, amount: "some" }}
     >
       <div className='container-default'>
         <div className='home-doctor-wrapper'>

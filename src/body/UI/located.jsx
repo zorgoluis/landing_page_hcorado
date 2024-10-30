@@ -38,15 +38,12 @@ const LocatedSection = () => {
     <motion.section 
       className='section' 
       id="ubicame"
-      initial="offscreen"
-      whileInView="onscreen"
-      viewport={{ once: true, amount: 0.8 }}
     >
       <motion.div className='container-medium-618px home-located' variants={TextVariant}>
         <div className='subtitle'>Establecimientos</div>
         <h2>Experiencia dental positiva y relajante</h2>
         <p>
-          Seinte la diferencia de un consultorio que combina modernidad y calidez en cada consulta 
+          Siente la diferencia de un consultorio que combina modernidad y calidez en cada consulta 
         </p>
       </motion.div>
       <div className='container-default w-container'>
@@ -54,7 +51,7 @@ const LocatedSection = () => {
           <div role="list" className='home-blog-grid w-dyn-items'>
             {
               articles.map((art, index) => (
-                <motion.div key={"art-card"+index} className='blog-article-item w-dyn-item' variants={MinCardVariant}>
+                <motion.div key={"art-card"+index} className='blog-article-item w-dyn-item'>
                   <div className='blog-article-item-wrapper'>
                     <a className='image-wrapper blog-article-item-image w-inline-block'>
                       <img src={art.image} className='image blog-article-item-image' />
@@ -82,7 +79,7 @@ const LocatedSection = () => {
           </div>
         </div>
         <motion.div style={{ width: "100%"}} variants={CardVariants}>
-          <APIProvider apiKey={'AIzaSyAQ_qXCJiXnIyRq7QS3RXJNtYaxnSkREmA'}>
+          <APIProvider apiKey={'AIzaSyAdfdjBiwPNkvVieFuBBHOP_oEYU2fg3do'}>
             <Map
               id='drmap'
               mapId="c54d301a0e46f31e"

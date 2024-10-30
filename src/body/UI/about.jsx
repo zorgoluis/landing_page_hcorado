@@ -13,7 +13,7 @@ const AboutSection = () => {
       id="sobremi"
       initial="offscreen"
       whileInView="onscreen"
-      viewport={{ once: true, amount: 0.8 }}
+      viewport={{ once: true, amount: "some" }}
     >
       <div className='container-default'>
         <Row className='home-about justify-content-between'>

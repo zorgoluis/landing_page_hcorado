@@ -13,7 +13,7 @@ const CitaSection = () => {
       id="sabias-que"
       initial="offscreen"
       whileInView="onscreen"
-      viewport={{ once: true, amount: 0.8 }}
+      viewport={{ once: true, amount: "some" }}
     >
       <div className='container-default w-container'>
         <motion.div className='split-content cta-left' variants={TextVariant}>
@@ -24,9 +24,9 @@ const CitaSection = () => {
           </p> */}
             <ul className='paragraph cta'>
               <li>Cuando presentas dolor intenso y persistente</li>
-              <li>Sencibilidad prolongada a temperaturas</li>
-              <li>Cambio de color dental después de un trauma</li>
-              <li>Absceso o fístula en las encias, comúnmente conocido como postemilla</li>
+              <li>Cuando hay sensibilidad prolongada a temperaturas</li>
+              <li>Cuando hay cambio de color dental después de un trauma</li>
+              <li>Cuando hay absceso o fístula en las encias, comúnmente conocido como postemilla</li>
             </ul>
           <div className='_2-buttons'>
             <a className='button-primary bg-secondary-1 cta w-button'>

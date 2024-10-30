@@ -30,7 +30,8 @@ const BodyFooter = () => {
             <img className='footer-logo' />
           </a>
           <p className='paragraph-small footer-top-content'>
-            CED PROF 12513439
+            CED PROF 12513439&nbsp;<br />
+            Aviso de publicidad COFEPRIS: 2407012002A00384
           </p>
         </div>
         <div className='divider footer-divider-1'></div>
@@ -44,8 +45,8 @@ const BodyFooter = () => {
           </div>
           <div className='w-layout-grid footer-social-media-grid'>
           {
-            social_network.map((sn) => (
-              <a className='footer-social-media-link' target='_blank' href={sn.url} title={sn.type}>
+            social_network.map((sn, k) => (
+              <a key={`icon-${k}`} className='footer-social-media-link' target='_blank' href={sn.url} title={sn.type}>
                 <i className={sn.icon}></i>
               </a>
             ))

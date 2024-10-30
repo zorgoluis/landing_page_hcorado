@@ -13,7 +13,7 @@ const FeaturesSections = () => {
       className='feature_content_feature'
       initial="offscreen"
       whileInView="onscreen"
-      viewport={{ once: true, amount: 0.8 }}
+      viewport={{ once: true, amount: "some" }}
     >
       <div className='container-default'>
         <Row className='feature_row_content'>
@@ -23,7 +23,7 @@ const FeaturesSections = () => {
                 <Card.Body>
                   <img src={icon_1} className='feature_image'/>
                   <h2 className='feature_title'>Urgencias</h2>
-                  <p className='feature_paragraph-small'>Interconsultas con otras especialidades, disponiblidad de citas y atención a urgencias</p>
+                  <p className='feature_paragraph-small'>Interconsultas con otras especialidades, disponiblidad de citas y atención a urgencias.</p>
                 </Card.Body>
               </Card>
             </motion.div>

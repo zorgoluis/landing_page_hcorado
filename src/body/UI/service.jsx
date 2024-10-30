@@ -33,7 +33,7 @@ const ServiceSection = () => {
       id="servicios"
       initial="offscreen"
       whileInView="onscreen"
-      viewport={{ once: true, amount: 0.8 }}
+      viewport={{ once: true, amount: "some" }}
     >
       <motion.div 
         className='container-default w-container'
@@ -92,7 +92,7 @@ const ServiceSection = () => {
                 <Card.Body className='service'>
                   <img className='image card-service' alt='General' src={icon_ser_1} />
                   <h3 className='title card-service'>Odontología Integral</h3>
-                  <p className='paragraph card-service'>Busco abordar tu salud bucal de manera completa, considerando no solo los problemas dentales específicos, sino también tu bienestar general</p>
+                  <p className='paragraph card-service'>Busco abordar tu salud bucal de manera completa, considerando no solo los problemas dentales específicos, sino también tu bienestar general.</p>
                   <div className='link-wrapper'>
                     {/* <div>Learn More</div> */}
                     <div className="link-underline" aria-hidden="true"></div>
@@ -106,7 +106,7 @@ const ServiceSection = () => {
                   <img className='image card-service' alt='General' src={icon_ser_6} />
                   <h3 className='title card-service'>Endodoncia</h3>
                   <p className='paragraph card-service'>
-                    La endodocnia es el procedimiento que se realiza cuando la parte interna del diente se inflama o se infecta.
+                    La endodoncia es el procedimiento que se realiza cuando la parte interna del diente se inflama o se infecta.
                   </p>
                   <div className='link-wrapper'>
                     {/* <div>Learn More</div> */}
@@ -119,7 +119,7 @@ const ServiceSection = () => {
               <Card className="text-center card-transform" border='light'>
                 <Card.Body className='service'>
                   <img className='image card-service' alt='General' src={icon_ser_3} />
-                  <h3 className='title card-service'>Cirigía Apical</h3>
+                  <h3 className='title card-service'>Cirugía Apical</h3>
                   <p className='paragraph card-service'>
                     Es un procedimiento dental que se realiza cuando el tratamiento de endodoncia no ha logrado eliminar la infección en la raíz del diente.
                   </p>
@@ -135,7 +135,7 @@ const ServiceSection = () => {
                 <Card.Body className='service'>
                   <img className='image card-service' alt='General' src={icon_ser_4} />
                   <h3 className='title card-service'>Autotrasplante</h3>
-                  <p className='paragraph card-service'>Procedimiento en el que un diente se extrae de su hubicación original y se trasplanta a otro citio, esto para reemplazar un diente dañado</p>
+                  <p className='paragraph card-service'>Procedimiento en el que un diente se extrae de su ubicación original y se trasplanta a otro sitio, esto para reemplazar un diente dañado</p>
                   <div className='link-wrapper'>
                     {/* <div>Learn More</div> */}
                     <div className="link-underline" aria-hidden="true"></div>
@@ -149,7 +149,7 @@ const ServiceSection = () => {
                   <img className='image card-service' alt='General' src={icon_ser_5} />
                   <h3 className='title card-service'>Reimplante Intencional</h3>
                   <p className='paragraph card-service'>
-                    Procedimiento en el cual un diente comprometido o enfermo se extrae y luego se vueve a colocar en su sitio original.
+                    Procedimiento en el cual un diente comprometido o enfermo se extrae y luego se vuelve a colocar en su sitio original.
                   </p>
                   <div className='link-wrapper'>
                     {/* <div>Learn More</div> */}
@@ -164,7 +164,7 @@ const ServiceSection = () => {
                   <img className='image card-service' alt='General' src={icon_ser_2} />
                   <h3 className='title card-service'>Endodoncia Infantil</h3>
                   <p className='paragraph card-service'>
-                    Atención de tratamientos endodónticos en paciente infantiles con organos dentales de adulto.
+                    Atención de tratamientos endodónticos en paciente infantiles con órganos dentales de adulto.
                   </p>
                   <div className='link-wrapper'>
                     {/* <div>Learn More</div> */}

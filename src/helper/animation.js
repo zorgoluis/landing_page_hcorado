@@ -8,7 +8,7 @@ export const CardVariants = {
     transition: {
       type: "spring",
       bounce: 0.4,
-      duration: 1
+      duration: 1.8
     }
   }
 };
@@ -25,7 +25,7 @@ export const CardBgVariants = {
     transition: {
       type: "spring",
       bounce: 0.4,
-      duration: 1
+      duration: 1.8
     }
   }
 };
@@ -39,7 +39,7 @@ export const TextVariant = {
     transition: {
       type: "spring",
       bounce: 0.4,
-      duration: 0.8
+      duration: 1.8   
     }
   }
 }
@@ -54,7 +54,7 @@ export const MinCardVariant = {
     transition: {
       type: "spring",
       bounce: 0.4,
-      duration: 1
+      duration: 1.8
     }
   }
 }
@@ -71,7 +71,7 @@ export const SectionVariant = {
     transition: {
       type: "spring",
       bounce: 0.4,
-      duration: 1
+      duration: 1.8
     }
   }
 }
