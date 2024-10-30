@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import {AdvancedMarker, APIProvider, InfoWindow, Map, Pin, useAdvancedMarkerRef} from '@vis.gl/react-google-maps';
 import '../styles/located.css';
-import img_art_1 from '../../assets/image-6-blog-article-doctor-template1.jpg';
+import img_art_1 from '../../assets/image-6-blog-article-doctor-template1-new.png';
 import img_art_2 from '../../assets/image-6-blog-article-doctor-template2.jpg';
-import img_art_3 from '../../assets/image-6-blog-article-doctor-template3.jpeg';
-import { section } from 'framer-motion/client';
+import img_art_3 from '../../assets/image-6-blog-article-doctor-template3-new.jpg';
+import { CardVariants, MinCardVariant, TextVariant } from '../../helper/animation';
+import icono from '../../assets/icons/Imagotipo_negativo.svg'
 
 const articles = [
   {
@@ -27,21 +30,31 @@ const articles = [
 ]
 
 const LocatedSection = () => {
+
+  const [infowindowOpen, setInfowindowOpen] = useState(true);
+  const [markerRef, marker] = useAdvancedMarkerRef();
+
   return (
-    <section className='section'>
-      <div className='container-medium-618px home-located'>
+    <motion.section 
+      className='section' 
+      id="ubicame"
+      initial="offscreen"
+      whileInView="onscreen"
+      viewport={{ once: true, amount: 0.8 }}
+    >
+      <motion.div className='container-medium-618px home-located' variants={TextVariant}>
         <div className='subtitle'>Establecimientos</div>
         <h2>Experiencia dental positiva y relajante</h2>
         <p>
           Seinte la diferencia de un consultorio que combina modernidad y calidez en cada consulta 
         </p>
-      </div>
+      </motion.div>
       <div className='container-default w-container'>
         <div className='w-dyn-list'>
           <div role="list" className='home-blog-grid w-dyn-items'>
             {
               articles.map((art, index) => (
-                <div key={"art-card"+index} className='blog-article-item w-dyn-item'>
+                <motion.div key={"art-card"+index} className='blog-article-item w-dyn-item' variants={MinCardVariant}>
                   <div className='blog-article-item-wrapper'>
                     <a className='image-wrapper blog-article-item-image w-inline-block'>
                       <img src={art.image} className='image blog-article-item-image' />
@@ -63,14 +76,48 @@ const LocatedSection = () => {
                       <div></div>
                     </a>
                   </div>
-                </div>
+                </motion.div>
               ))
             }
           </div>
         </div>
+        <motion.div style={{ width: "100%"}} variants={CardVariants}>
+          <APIProvider apiKey={'AIzaSyAQ_qXCJiXnIyRq7QS3RXJNtYaxnSkREmA'}>
+            <Map
+              id='drmap'
+              mapId="c54d301a0e46f31e"
+              style={{width: '100%', height: '500px'}}
+              defaultCenter={{lat: 16.76123925592508, lng: -93.10539342629392}}
+              defaultZoom={18}
+              gestureHandling={'greedy'}
+              disableDefaultUI={true}
+              mapTypeId={'roadmap'}
+            >
+              <AdvancedMarker
+                ref={markerRef}
+                title={'Dra. Heydi Corado'}
+                position={{lat: 16.7610617413711, lng: -93.10540296219857}}
+                onClick={() => setInfowindowOpen(true)}
+              >
+                <div style={{ background: "var(--neutral-800)", padding: 10, borderRadius: 32 }}>
+                  <img width={45} height={45} src={icono} />
+                </div>
+              </AdvancedMarker>
+              {infowindowOpen && (
+                <InfoWindow
+                  anchor={marker}
+                  maxWidth={200}
+                  onCloseClick={() => setInfowindowOpen(false)}>
+                    Álika Arte Dental. Valia Centro médico, 5a. Avenida Nte. Ote. 1167, Brasilia, 29010 Tuxtla Gutiérrez, Chis.&nbsp;
+                    <a target='_blank' href='https://maps.google.com?q=16.7610617413711,-93.10540296219857'>Abrir mapa</a>
+                </InfoWindow>
+              )}
+            </Map>
+          </APIProvider>
+        </motion.div>
       </div>
       
-    </section>
+    </motion.section>
   )
 }
 

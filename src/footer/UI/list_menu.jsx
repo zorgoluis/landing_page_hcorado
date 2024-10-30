@@ -9,26 +9,26 @@ const ListMenu = () => {
           <div className='footer-nav-content'>
             <ul role='list' className='footer-nav-links w-list-unstyled'>
               <li className='footer-nav-link-item'>
-                <a className='footer-nav-link w--current'>Home</a>
+                <a className='footer-nav-link w--current'>Inicio</a>
               </li>
               <li className='footer-nav-link-item'>
-                <a className='footer-nav-link w--current'>About</a>
+                <a className='footer-nav-link w--current'>Sobre mi</a>
               </li>
             </ul>
             <ul role='list' className='footer-nav-links last w-list-unstyled'>
               <li className='footer-nav-link-item'>
-                <a className='footer-nav-link w--current'>Contacto</a>
+                <a className='footer-nav-link w--current'>Servicios</a>
               </li>
               <li className='footer-nav-link-item'>
-                <a className='footer-nav-link w--current'>Planes</a>
+                <a className='footer-nav-link w--current'>Sabias que...</a>
               </li>
               <li className='footer-nav-link-item'>
-                <a className='footer-nav-link w--current'>Solo un plan</a>
+                <a className='footer-nav-link w--current'>Ubicame</a>
               </li>
             </ul>
           </div>
         </div>
-        <div className='footer-nav-box'>
+        {/* <div className='footer-nav-box'>
           <h2 className='title footer-title'>Utility Pages</h2>
           <div className='footer-nav-content'>
             <ul role='list' className='footer-nav-links w-list-unstyled'>
@@ -51,14 +51,14 @@ const ListMenu = () => {
               </li>
             </ul>
           </div>
-        </div>
+        </div> */}
         <div className='footer-nav-box last'>
           <h2 className='title footer-title'>Contacto</h2>
           <div className='footer-nav-content'>
             <ul role="list" className='footer-nav-links last w-list-unstyled'>
               <li className='footer-nav-link-item'>
                 <p className='paragraph-small footer-address'>
-                  24 Broadcast Drive Charlotte&nbsp;NC 28202, USA
+                  Álika Arte Dental. Valia Centro médico,&nbsp;5a. Avenida Nte. Ote. 1167&nbsp;Brasilia, 29010 Tuxtla Gutiérrez, Chis
                 </p>
               </li>
               <li className='footer-nav-link-item'>

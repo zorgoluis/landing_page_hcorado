@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -13,17 +17,17 @@
   -moz-osx-font-smoothing: grayscale;
 
   --neutral-600: #5d7471;
-  --neutral-800: #042622;
+  --neutral-800: #323949;
   --primary-1: #ab95c6;
-  --secondary-1: #81c7d5;
+  --secondary-1: #8ac5be;
   --neutral-100: white;
   --secondary-2: #f9ede6;
-  --secondary-3: #144741;
-  --secondary-4: #deeeec;
+  --secondary-3: #c4b1c5;
+  --secondary-4: #c5e0db;
   --neutral-700: #304f4b;
   --neutral-500: #90a19f;
   --neutral-400: #b6bfbe;
-  --neutral-300: #e1e9e8;
+  --neutral-300: #ebe9e7;
   --neutral-200: #fbf7f3;
   --primary-2: #f66688;
   height: 100%;

@@ -1,17 +1,20 @@
 import React, { useCallback, useRef } from 'react';
+import { motion } from 'framer-motion';
 import { Card, Col, Row } from 'react-bootstrap';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
 import '../styles/services.css';
+import { SectionVariant } from '../../helper/animation';
 
 import { Autoplay } from 'swiper/modules';
 
-import icon_ser_1 from '../../assets/icons/icon-1-service-doctor-template.svg';
-import icon_ser_2 from '../../assets/icons/icon-2-service-doctor-template.svg';
-import icon_ser_3 from '../../assets/icons/icon-3-service-doctor-template.svg';
-import icon_ser_4 from '../../assets/icons/icon-4-service-doctor-template.svg';
-import icon_ser_5 from '../../assets/icons/icon-5-service-doctor-template.svg';
-import icon_ser_6 from '../../assets/icons/icon-6-service-doctor-template.svg';
+import icon_ser_1 from '../../assets/icons/dentista_integral.png';
+import icon_ser_2 from '../../assets/icons/dentista.png';
+import icon_ser_3 from '../../assets/icons/cirugia-dental.png';
+import icon_ser_4 from '../../assets/icons/implante-dental.png';
+import icon_ser_5 from '../../assets/icons/carillas-dentales.png';
+import icon_ser_6 from '../../assets/icons/canal-raiz.png';
+import icon_ser_7 from '../../assets/icons/caries.png'
 
 const ServiceSection = () => {
   const swiperRef = useRef();
@@ -25,8 +28,17 @@ const ServiceSection = () => {
   }, [swiperRef])
 
   return (
-    <section className='section home-services'>
-      <div className='container-default w-container'>
+    <motion.section 
+      className='section home-services' 
+      id="servicios"
+      initial="offscreen"
+      whileInView="onscreen"
+      viewport={{ once: true, amount: 0.8 }}
+    >
+      <motion.div 
+        className='container-default w-container'
+        variants={SectionVariant}
+        >
         <Row className='top-content home-services justify-content-md-between'>
           <Col xs="12" sm="12" md="12" lg="5">
             <div className='subtitle color-primary-1'>Servicios</div>
@@ -91,7 +103,7 @@ const ServiceSection = () => {
             <SwiperSlide>
               <Card className="text-center card-transform" border='light'>
                 <Card.Body className='service'>
-                  <img className='image card-service' alt='General' src={icon_ser_2} />
+                  <img className='image card-service' alt='General' src={icon_ser_6} />
                   <h3 className='title card-service'>Endodoncia</h3>
                   <p className='paragraph card-service'>
                     La endodocnia es el procedimiento que se realiza cuando la parte interna del diente se inflama o se infecta.
@@ -137,7 +149,7 @@ const ServiceSection = () => {
                   <img className='image card-service' alt='General' src={icon_ser_5} />
                   <h3 className='title card-service'>Reimplante Intencional</h3>
                   <p className='paragraph card-service'>
-                    Procedimiento en el cual un diente comprometido o enfermo se extrae y luego se vueve a colocalr en su sitio original.
+                    Procedimiento en el cual un diente comprometido o enfermo se extrae y luego se vueve a colocar en su sitio original.
                   </p>
                   <div className='link-wrapper'>
                     {/* <div>Learn More</div> */}
@@ -149,7 +161,7 @@ const ServiceSection = () => {
             <SwiperSlide>
               <Card className="text-center card-transform" border='light'>
                 <Card.Body className='service'>
-                  <img className='image card-service' alt='General' src={icon_ser_6} />
+                  <img className='image card-service' alt='General' src={icon_ser_2} />
                   <h3 className='title card-service'>Endodoncia Infantil</h3>
                   <p className='paragraph card-service'>
                     Atención de tratamientos endodónticos en paciente infantiles con organos dentales de adulto.
@@ -164,7 +176,7 @@ const ServiceSection = () => {
             <SwiperSlide>
               <Card className="text-center card-transform" border='light'>
                 <Card.Body className='service'>
-                  <img className='image card-service' alt='General' src={icon_ser_6} />
+                  <img className='image card-service' alt='General' src={icon_ser_7} />
                   <h3 className='title card-service'>Trauma dental</h3>
                   <p className='paragraph card-service'>
                     Atención de fracturas, quebraduras, desplazamientos y/o pérdidas completas dentales.
@@ -178,8 +190,8 @@ const ServiceSection = () => {
             </SwiperSlide>
           </Swiper>
         </div>
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   )
 }
 
