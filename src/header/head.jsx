@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { motion } from "framer-motion";
+import { getAnalytics, logEvent } from "firebase/analytics";
 import './styles/head.css'
 import { Col, Row } from 'react-bootstrap';
 import finder_svg from '../assets/6018589e3ed02ef5bdb1fbe4_bg-home-hero-doctor-template.svg';
@@ -11,6 +12,13 @@ const Head = () => {
   const getMessage = () => {
     return "Hola, quisiera agendar una cita de valoración para el servicio de: "
   }
+
+  const handleClick = useCallback(() => {
+    const analytics = getAnalytics();
+    logEvent(analytics, 'open_information');
+
+    window.open(`https://wa.me/+5219612657825/?text=${getMessage()}`, '_blank')
+  }, [getMessage, getAnalytics])
 
   return (
     <motion.section 
@@ -31,7 +39,7 @@ const Head = () => {
                       <div className='subtitle home-doctor'>Dra. Heydi Corado</div>
                       <h1 className='title home-doctor'>Dedicada a cuidar de tu sonrisa</h1>
                       <p className='paragraph home-doctor'>Estoy comprometida con tu salud bucal y me aseguraré que tu visita sea una experiencia positiva, confiable, humanizada y accesible</p>
-                      <a className='button-primary bg-secondary-1 w-button' target='_blank' href={`https://wa.me/+5219612657825/?text=${getMessage()}`}>
+                      <a className='button-primary bg-secondary-1 w-button' onClick={handleClick}>
                         Agendar cita
                       </a>
                     </motion.div>
