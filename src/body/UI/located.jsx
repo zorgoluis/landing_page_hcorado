@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 import {AdvancedMarker, APIProvider, InfoWindow, Map, Pin, useAdvancedMarkerRef} from '@vis.gl/react-google-maps';
 import '../styles/located.css';
 import img_art_1 from '../../assets/image-6-blog-article-doctor-template1-new.png';
-import img_art_2 from '../../assets/image-6-blog-article-doctor-template2.jpg';
+import img_art_2 from '../../assets/image-6-blog-article-doctor-template4-new.jpg';
 import img_art_3 from '../../assets/image-6-blog-article-doctor-template3-new.jpg';
-import { CardVariants, MinCardVariant, TextVariant } from '../../helper/animation';
+import { CardVariants, TextVariant } from '../../helper/animation';
 import icono from '../../assets/icons/Imagotipo_negativo.svg'
 
 const articles = [
@@ -40,7 +40,7 @@ const LocatedSection = () => {
       id="ubicame"
     >
       <motion.div className='container-medium-618px home-located' variants={TextVariant}>
-        <div className='subtitle'>Establecimientos</div>
+        <div className='subtitle'>Establecimiento</div>
         <h2>Experiencia dental positiva y relajante</h2>
         <p>
           Siente la diferencia de un consultorio que combina modernidad y calidez en cada consulta 

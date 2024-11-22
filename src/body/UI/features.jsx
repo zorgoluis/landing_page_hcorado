@@ -23,7 +23,9 @@ const FeaturesSections = () => {
                 <Card.Body>
                   <img src={icon_1} className='feature_image'/>
                   <h2 className='feature_title'>Urgencias</h2>
-                  <p className='feature_paragraph-small'>Interconsultas con otras especialidades, disponiblidad de citas y atención a urgencias.</p>
+                  <p className='feature_paragraph-small'>
+                    Disponiblidad de citas y atención urgente a tu dolor dental.
+                  </p>
                 </Card.Body>
               </Card>
             </motion.div>

@@ -30,7 +30,11 @@ const Head = () => {
                     <motion.div variants={TextVariant}>
                       <div className='subtitle home-doctor'>Dra. Heydi Corado</div>
                       <h1 className='title home-doctor'>Dedicada a cuidar de tu sonrisa</h1>
-                      <p className='paragraph home-doctor'>Estoy comprometida con tu salud bucal y me aseguraré que tu visita sea una experiencia positiva, confiable, humanizada y accesible</p>
+                      <p className='paragraph home-doctor'>
+                        En nuestro consultorio dental ubicado en <b>Tuxtla Gutiérrez</b> y <b>Ocozocoautla de Espinosa</b>, <strong>Chiapas</strong>, estamos comprometidos en realizar tratamientos de endodoncia y odontolgía general
+                        de calidad y a tu alcance. <br />
+                        Así mismo contamos con interconsultas con especialistas con otras áreas dentales, para brindarte una atención completa y oportuna.
+                      </p>
                       <a className='button-primary bg-secondary-1 w-button' target='_blank' href={`https://wa.me/+5219612657825/?text=${getMessage()}`}>
                         Agendar cita
                       </a>

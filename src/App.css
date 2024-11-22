@@ -211,8 +211,12 @@ img {
   list-style: none;
 }
 
+.paragraph {
+  font-size: 18px;
+}
+
 .paragraph-small {
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.6em;
 }
 

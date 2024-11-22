@@ -1,6 +1,7 @@
 import React from 'react';
 import '../footer/styles/footer.css';
 import ListMenu from './UI/list_menu';
+import logo_white from '../assets/icons/logo_white.svg'
 
 const social_network = [
   {
@@ -27,7 +28,7 @@ const BodyFooter = () => {
       <div className='container-default w-container'>
         <div className='top-content footer-top-content'>
           <a className='footer-logo-container w-inline-block w--current'>
-            <img className='footer-logo' />
+            <img className='footer-logo' src={logo_white} />
           </a>
           <p className='paragraph-small footer-top-content'>
             CED PROF 12513439&nbsp;<br />

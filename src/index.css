@@ -2,8 +2,23 @@ html {
   scroll-behavior: smooth;
 }
 
+@font-face {
+  font-family: "GreycliffCF";
+  src: url("./assets/fonts/GreycliffCF-Regular.ttf") format("truetype");
+  font-weight: normal; 
+  font-style: normal;
+}
+
+@font-face { 
+  font-family: 'QuicheFlare'; 
+  src: url('./assets/fonts/QuicheFlare-Regular.otf') format('opentype');
+  font-weight: normal; 
+  font-style: normal;
+}
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
+  font-family: 'GreycliffCF', 'QuicheFlare', Roboto;
   line-height: 1.5;
   font-weight: 400;
 
