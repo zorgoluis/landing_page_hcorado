@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { motion } from 'framer-motion';
 import {AdvancedMarker, APIProvider, InfoWindow, Map, Pin, useAdvancedMarkerRef} from '@vis.gl/react-google-maps';
 import '../styles/located.css';
+import { getAnalytics, logEvent } from "firebase/analytics";
 import img_art_1 from '../../assets/image-6-blog-article-doctor-template1-new.png';
 import img_art_2 from '../../assets/image-6-blog-article-doctor-template4-new.jpg';
 import img_art_3 from '../../assets/image-6-blog-article-doctor-template3-new.jpg';
@@ -33,6 +34,13 @@ const LocatedSection = () => {
 
   const [infowindowOpen, setInfowindowOpen] = useState(true);
   const [markerRef, marker] = useAdvancedMarkerRef();
+
+  const openInMap = useCallback(() => {
+    const analytics = getAnalytics();
+    logEvent(analytics, 'open_view_map');
+
+    window.open('https://maps.google.com?q=16.7610617413711,-93.10540296219857', '_blank')
+  }, [])
 
   return (
     <motion.section 
@@ -79,7 +87,7 @@ const LocatedSection = () => {
           </div>
         </div>
         <motion.div style={{ width: "100%"}} variants={CardVariants}>
-          <APIProvider apiKey={'AIzaSyAdfdjBiwPNkvVieFuBBHOP_oEYU2fg3do'}>
+          <APIProvider apiKey={`${import.meta.env.VITE_KEY_GOOGLE_MAP}`}>
             <Map
               id='drmap'
               mapId="c54d301a0e46f31e"
@@ -106,7 +114,7 @@ const LocatedSection = () => {
                   maxWidth={200}
                   onCloseClick={() => setInfowindowOpen(false)}>
                     Álika Arte Dental. Valia Centro médico, 5a. Avenida Nte. Ote. 1167, Brasilia, 29010 Tuxtla Gutiérrez, Chis.&nbsp;
-                    <a target='_blank' href='https://maps.google.com?q=16.7610617413711,-93.10540296219857'>Abrir mapa</a>
+                    <a onClick={openInMap}  style={{ cursor: "pointer", textDecoration: "undeline", color: "blue"}}>Abrir mapa</a>
                 </InfoWindow>
               )}
             </Map>
