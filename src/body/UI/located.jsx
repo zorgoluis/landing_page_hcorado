@@ -1,11 +1,12 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import {AdvancedMarker, APIProvider, InfoWindow, Map, Pin, useAdvancedMarkerRef} from '@vis.gl/react-google-maps';
 import '../styles/located.css';
 import { getAnalytics, logEvent } from "firebase/analytics";
-import img_art_1 from '../../assets/image-6-blog-article-doctor-template1-new.png';
-import img_art_2 from '../../assets/image-6-blog-article-doctor-template4-new.jpg';
-import img_art_3 from '../../assets/image-6-blog-article-doctor-template3-new.jpg';
+// import img_art_1 from '../../assets/image-6-blog-article-doctor-template1-new.png';
+// import img_art_2 from '../../assets/image-6-blog-article-doctor-template4-new.jpg';
+// import img_art_3 from '../../assets/image-6-blog-article-doctor-template3-new.jpg';
+import img_demo from '../../assets/image-6-blog-article-doctor-template2.jpg';
 import { CardVariants, TextVariant } from '../../helper/animation';
 import icono from '../../assets/icons/Imagotipo_negativo.svg'
 
@@ -14,23 +15,27 @@ const articles = [
     section: "Instalaciones",
     title: "",
     context: "Cómodo acceso, estacionamiento gratuito y seguro",
-    image: img_art_1
+    image: img_demo
   },
   {
     section: "Sala de espera",
     title: "",
     context: "Sala de espera amplia, climatizada y moderna",
-    image: img_art_2
+    image: img_demo
   },
   {
     section: "Consultorio",
     title: "",
     context: "Equipos modernos, radiografia digitales y lo último en tecnología para tú atención",
-    image: img_art_3
+    image: img_demo
   }
 ]
 
 const LocatedSection = () => {
+
+  const coord = useMemo(() => (
+    {lat: 16.775444878997085, lng: -93.09865865069378}
+  ), []);
 
   const [infowindowOpen, setInfowindowOpen] = useState(true);
   const [markerRef, marker] = useAdvancedMarkerRef();
@@ -39,8 +44,8 @@ const LocatedSection = () => {
     const analytics = getAnalytics();
     logEvent(analytics, 'open_view_map');
 
-    window.open('https://maps.google.com?q=16.7610617413711,-93.10540296219857', '_blank')
-  }, [])
+    window.open(`https://maps.google.com?q=${coord.lat},${coord.lng}`, '_blank')
+  }, [coord])
 
   return (
     <motion.section 
@@ -92,7 +97,7 @@ const LocatedSection = () => {
               id='drmap'
               mapId="c54d301a0e46f31e"
               style={{width: '100%', height: '500px'}}
-              defaultCenter={{lat: 16.76123925592508, lng: -93.10539342629392}}
+              defaultCenter={coord}
               defaultZoom={18}
               gestureHandling={'greedy'}
               disableDefaultUI={true}
@@ -101,7 +106,7 @@ const LocatedSection = () => {
               <AdvancedMarker
                 ref={markerRef}
                 title={'Dra. Heydi Corado'}
-                position={{lat: 16.7610617413711, lng: -93.10540296219857}}
+                position={coord}
                 onClick={() => setInfowindowOpen(true)}
               >
                 <div style={{ background: "var(--neutral-800)", padding: 10, borderRadius: 32 }}>
@@ -113,7 +118,7 @@ const LocatedSection = () => {
                   anchor={marker}
                   maxWidth={200}
                   onCloseClick={() => setInfowindowOpen(false)}>
-                    Álika Arte Dental. Valia Centro médico, 5a. Avenida Nte. Ote. 1167, Brasilia, 29010 Tuxtla Gutiérrez, Chis.&nbsp;
+                    Guatemala 10a, Estrella de Oriente, 29010 Tuxtla Gutiérrez, Chis. &nbsp;
                     <a onClick={openInMap}  style={{ cursor: "pointer", textDecoration: "undeline", color: "blue"}}>Abrir mapa</a>
                 </InfoWindow>
               )}

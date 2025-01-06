@@ -58,7 +58,7 @@ const ListMenu = () => {
             <ul role="list" className='footer-nav-links last w-list-unstyled'>
               <li className='footer-nav-link-item'>
                 <p className='paragraph-small footer-address'>
-                  Álika Arte Dental. Valia Centro médico,&nbsp;5a. Avenida Nte. Ote. 1167&nbsp;Brasilia, 29010 Tuxtla Gutiérrez, Chis
+                  EndoCorado - Centro de Especialidades Dentales,&nbsp;Guatemala 10a, &nbsp;Estrella de Oriente, 29010 Tuxtla Gutiérrez, Chis.
                 </p>
               </li>
               <li className='footer-nav-link-item'>
