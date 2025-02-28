@@ -17,7 +17,7 @@ const Head = () => {
     const analytics = getAnalytics();
     logEvent(analytics, 'open_whatsapp');
 
-    window.open(`https://wa.me/+5219612657825/?text=${getMessage()}`, '_blank')
+    window.open(`https://wa.me/+521${import.meta.env.VITE_NUMBER_PHONE}/?text=${getMessage()}`, '_blank')
   }, [getMessage, getAnalytics])
 
   return (
@@ -39,7 +39,7 @@ const Head = () => {
                       <div className='subtitle home-doctor'>Dra. Heydi Corado</div>
                       <h1 className='title home-doctor'>Dedicada a cuidar de tu sonrisa</h1>
                       <p className='paragraph home-doctor'>
-                        En nuestro consultorio dental ubicado en <b>Tuxtla Gutiérrez</b> y <b>Ocozocoautla de Espinosa</b>, <strong>Chiapas</strong>, estamos comprometidos en realizar tratamientos de endodoncia y odontología general
+                        En nuestro consultorio dental ubicado en <b>Tuxtla Gutiérrez</b> y <b>Ocozocoautla de Espinosa</b>, <strong>Chiapas</strong>. Estamos comprometidos en realizar tratamientos de endodoncia y odontología general
                         de calidad y a tu alcance. <br />
                         Así mismo contamos con interconsultas a especialistas de otras áreas dentales, para brindarte una atención completa y oportuna.
                       </p>

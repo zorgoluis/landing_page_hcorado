@@ -17,7 +17,7 @@ const social_network = [
   {
     type: "Whatsapp",
     icon: "bi bi-whatsapp",
-    url: "https://wa.me/+5219612657825"
+    url: `https://wa.me/+521${import.meta.env.VITE_NUMBER_PHONE}`
   }
 ]
 
@@ -32,7 +32,7 @@ const BodyFooter = () => {
           </a>
           <p className='paragraph-small footer-top-content'>
             CED PROF 12513439&nbsp;<br />
-            Aviso de publicidad COFEPRIS: 2407012002A00384
+            Aviso de publicidad COFEPRIS: 2507012002A00077
           </p>
         </div>
         <div className='divider footer-divider-1'></div>

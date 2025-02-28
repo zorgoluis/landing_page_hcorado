@@ -58,14 +58,14 @@ const ListMenu = () => {
             <ul role="list" className='footer-nav-links last w-list-unstyled'>
               <li className='footer-nav-link-item'>
                 <p className='paragraph-small footer-address'>
-                  EndoCorado - Centro de Especialidades Dentales,&nbsp;Guatemala 10a, &nbsp;Estrella de Oriente, 29010 Tuxtla Gutiérrez, Chis.
+                  Centro Dental - Dra. Heydi Corado - Especialista en Endodoncia. &nbsp;Guatemala 10a, &nbsp;Estrella de Oriente, 29010 Tuxtla Gutiérrez, Chis.
                 </p>
               </li>
               <li className='footer-nav-link-item'>
                 <a className='footer-nav-link' href='mailto:heydicorados@gmail.com'>heydicorados@gmail.com</a>
               </li>
               <li className='footer-nav-link-item'>
-                <a className='footer-nav-link' href='tel:9612657825'>961-265-7825</a>
+                <a className='footer-nav-link' href='tel:9612657825'>{import.meta.env.VITE_NUMBER_PHONE}</a>
               </li>
             </ul>
           </div>

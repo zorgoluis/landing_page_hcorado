@@ -3,10 +3,10 @@ import { motion } from 'framer-motion';
 import {AdvancedMarker, APIProvider, InfoWindow, Map, Pin, useAdvancedMarkerRef} from '@vis.gl/react-google-maps';
 import '../styles/located.css';
 import { getAnalytics, logEvent } from "firebase/analytics";
-// import img_art_1 from '../../assets/image-6-blog-article-doctor-template1-new.png';
-// import img_art_2 from '../../assets/image-6-blog-article-doctor-template4-new.jpg';
-// import img_art_3 from '../../assets/image-6-blog-article-doctor-template3-new.jpg';
-import img_demo from '../../assets/image-6-blog-article-doctor-template2.jpg';
+import img_art_1 from '../../assets/image-1-blog-article-doctor-template.jpg';
+import img_art_2 from '../../assets/image-2-blog-article-doctor-template.jpg';
+import img_art_3 from '../../assets/image-3-blog-article-doctor-template.jpg';
+// import img_demo from '../../assets/image-6-blog-article-doctor-template2.jpg';
 import { CardVariants, TextVariant } from '../../helper/animation';
 import icono from '../../assets/icons/Imagotipo_negativo.svg'
 
@@ -15,19 +15,19 @@ const articles = [
     section: "Instalaciones",
     title: "",
     context: "Cómodo acceso, estacionamiento gratuito y seguro",
-    image: img_demo
+    image: img_art_1
   },
   {
     section: "Sala de espera",
     title: "",
     context: "Sala de espera amplia, climatizada y moderna",
-    image: img_demo
+    image: img_art_2
   },
   {
     section: "Consultorio",
     title: "",
     context: "Equipos modernos, radiografia digitales y lo último en tecnología para tú atención",
-    image: img_demo
+    image: img_art_3
   }
 ]
 
