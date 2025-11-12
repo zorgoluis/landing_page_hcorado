@@ -1,4 +1,3 @@
-import React from 'react';
 import '../footer/styles/footer.css';
 import ListMenu from './UI/list_menu';
 import logo_white from '../assets/icons/logo_white.svg'
@@ -31,8 +30,15 @@ const BodyFooter = () => {
             <img className='footer-logo' src={logo_white} />
           </a>
           <p className='paragraph-small footer-top-content'>
-            CED PROF 12513439&nbsp;<br />
-            Aviso de publicidad COFEPRIS: 2507012002A00077
+            Licenciatura en Cirujano Dentista<br />
+            Cédula profesional 12513439 <br />
+            ----------------------------------------------------------- <br />
+            Especialidad en Endodoncia <br />
+            Cédula Especialidad 15126908<br />
+            ----------------------------------------------------------- <br />
+            UNICACH-Universidad de Guadalajara<br />
+            <br />
+            Aviso de publicidad COFEPRIS: 2507015056X00545
           </p>
         </div>
         <div className='divider footer-divider-1'></div>

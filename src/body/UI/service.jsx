@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react';
+import { useCallback, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Card, Col, Row } from 'react-bootstrap';
 import {Swiper, SwiperSlide} from 'swiper/react';

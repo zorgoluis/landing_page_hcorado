@@ -6,6 +6,7 @@ import Head from './header/head'
 import BodySections from './body/body_sections'
 import BodyFooter from './footer/body_footer'
 import TopHead from './top'
+import { PublicitationImg } from './components/publicitation_img'
 import { useEffect } from 'react';
 
 const firebaseConfig = {
@@ -32,6 +33,10 @@ function App() {
       breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs']}
       minBreakpoint="xs"
     >
+      <PublicitationImg 
+        autoShow={true}
+        showDuration={0}
+      />
       <TopHead />
       <Head />
       <BodySections />

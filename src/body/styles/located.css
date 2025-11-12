@@ -7,16 +7,88 @@
   grid-column-gap: 26px;
   grid-row-gap: 16px;
   grid-template-rows: auto;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-auto-columns: 1fr;
   margin-bottom: 45px;
   display: grid;
 }
 
 .blog-article-item-wrapper {
+  width: 100%;
   height: 100%;
   flex-direction: column;
   display: flex;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.blog-article-item.w-dyn-item {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.image-wrapper.blog-article-item-image {
+  width: 100%;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  display: block;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.image.blog-article-item-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  max-width: 100%;
+  max-height: 100%;
+  box-sizing: border-box;
+}
+
+/* Específico para video */
+video.image.blog-article-item-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  max-width: 100%;
+  max-height: 100%;
+  box-sizing: border-box;
+}
+
+/* Estilos para el Swiper superpuesto sobre el video */
+.image-wrapper.blog-article-item-image .swiper {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  top: auto;
+  width: auto;
+  height: auto;
+  z-index: 10;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.image-wrapper.blog-article-item-image .swiper-wrapper {
+  height: auto;
+  align-items: flex-end;
+}
+
+.image-wrapper.blog-article-item-image .swiper-slide {
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: transparent;
 }
 
 .card.blog-article-item {
@@ -33,6 +105,41 @@
   display: flex;
   position: relative;
   box-shadow: 0 2px 6px rgba(8, 15, 52, .06);
+}
+
+/* Estilos para el título sobre el video */
+.video-title-overlay {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  z-index: 5;
+  text-align: center;
+}
+
+.video-title {
+  color: white;
+  font-size: 28px;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+  padding: 15px 25px;
+  border-radius: 12px;
+  margin: 0;
+  line-height: 1.2em;
+}
+
+/* Estilos para tarjetas sobre video */
+.image-wrapper.blog-article-item-image .card.blog-article-item {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(3px);
+  border-radius: 12px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  max-width: 70%;
+  box-shadow: 0 4px 20px rgba(8, 15, 52, .2);
+  position: relative;
 }
 
 .card-blog-article-item-about {
@@ -78,8 +185,36 @@
 
   .home-blog-grid {
     grid-row-gap: 40px;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     margin-bottom: 40px;
+  }
+
+  .image-wrapper.blog-article-item-image {
+    height: 600px;
+  }
+
+  /* Ajustes para swiper en tablet */
+  .image-wrapper.blog-article-item-image .swiper {
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+  }
+
+  .image-wrapper.blog-article-item-image .card.blog-article-item {
+    max-width: 75%;
+    padding: 45px 25px 35px 28px;
+  }
+
+  /* Título responsivo en tablet */
+  .video-title-overlay {
+    top: 15px;
+    left: 15px;
+    right: 15px;
+  }
+
+  .video-title {
+    font-size: 24px;
+    padding: 12px 20px;
   }
 }
 
@@ -100,6 +235,39 @@
     grid-row-gap: 40px;
     grid-template-columns: 1fr;
     margin-bottom: 40px;
+  }
+
+  .image-wrapper.blog-article-item-image {
+    height: 600px;
+  }
+
+  /* Ajustes para swiper en móvil */
+  .image-wrapper.blog-article-item-image .swiper {
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+  }
+
+  .image-wrapper.blog-article-item-image .card.blog-article-item {
+    max-width: 85%;
+    padding: 35px 20px 25px 22px;
+  }
+
+  .title.card-blog-article-item {
+    font-size: 18px;
+    line-height: 1.2em;
+  }
+
+  /* Título responsivo en móvil */
+  .video-title-overlay {
+    top: 12px;
+    left: 12px;
+    right: 12px;
+  }
+
+  .video-title {
+    font-size: 20px;
+    padding: 10px 18px;
   }
 }
 
@@ -130,5 +298,44 @@
 
   .title.card-blog-article-item {
     font-size: 20px;
+  }
+
+  .image-wrapper.blog-article-item-image {
+    height: 200px;
+  }
+
+  /* Ajustes para swiper en móvil pequeño */
+  .image-wrapper.blog-article-item-image .swiper {
+    bottom: 8px;
+    left: 8px;
+    right: 8px;
+  }
+
+  .image-wrapper.blog-article-item-image .card.blog-article-item {
+    max-width: 90%;
+    padding: 25px 15px 20px 18px;
+  }
+
+  .title.card-blog-article-item {
+    font-size: 16px;
+    line-height: 1.1em;
+    margin-bottom: 8px;
+  }
+
+  .card-blog-article-item-about {
+    margin-bottom: 12px;
+  }
+
+  /* Título responsivo en móvil pequeño */
+  .video-title-overlay {
+    top: 10px;
+    left: 10px;
+    right: 10px;
+  }
+
+  .video-title {
+    font-size: 18px;
+    padding: 8px 15px;
+    line-height: 1.1em;
   }
 }
