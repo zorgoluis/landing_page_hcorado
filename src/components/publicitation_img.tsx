@@ -5,6 +5,8 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import './styles/publication_modal.css';
+import promo1 from '../assets/promotions/promo0469.jpg';
+import promo2 from '../assets/promotions/promo0471.jpg';
 
 
 interface PublicationData {
@@ -32,13 +34,13 @@ export const PublicitationImg: React.FC<PublicitationImgProps> = ({
   const defaultPublications: PublicationData[] = [
     {
       id: 1,
-      image: '/promotions/IMG_0469.jpg',
+      image: promo1,
       title: 'Promoción Especial',
       description: '¡Aprovecha nuestras ofertas exclusivas en tratamientos dentales!',
     },
     {
       id: 2,
-      image: '/promotions/IMG_0471.jpg',
+      image: promo2,
       title: 'Servicios Premium',
       description: 'Descubre nuestros tratamientos de alta calidad con tecnología moderna',
     }
