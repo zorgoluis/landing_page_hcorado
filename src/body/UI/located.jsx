@@ -8,6 +8,7 @@ import { CardVariants, TextVariant } from '../../helper/animation';
 import icono from '../../assets/icons/Imagotipo_negativo.svg'
 import { CarouselLocations } from '../../components/carousel_locations';
 import videoCoita from '../../assets/coita-video.mp4';
+import videoTuxtla from '../../assets/tuxtla-video.mp4';
 
 const sectionTuxtla = [
   {
@@ -98,7 +99,7 @@ const LocatedSection = () => {
         <div className='w-dyn-list'>
           <div role="list" className='home-blog-grid w-dyn-items'>
             <CarouselLocations title='Ocozocoautla' video={videoCoita} sections={sectionCoita} />
-            <CarouselLocations title='Tuxtla Gtz' video={videoCoita} sections={sectionTuxtla} />
+            <CarouselLocations title='Tuxtla Gtz' video={videoTuxtla} sections={sectionTuxtla} />
           </div>
         </div>
         <motion.div style={{ width: "100%"}} variants={CardVariants}>

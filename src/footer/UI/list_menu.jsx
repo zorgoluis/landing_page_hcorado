@@ -51,7 +51,7 @@ const ListMenu = () => {
           </div>
         </div> */}
         <div className='footer-nav-box'>
-          <h2 className='title footer-title'>Contacto Tuxtla Gtz</h2>
+          <h2 className='title footer-title'>Contacto</h2>
           <div className='footer-nav-content'>
             <ul role="list" className='footer-nav-links last w-list-unstyled'>
               <li className='footer-nav-link-item'>
@@ -69,7 +69,7 @@ const ListMenu = () => {
           </div>
         </div>
         <div className='footer-nav-box last'>
-          <h2 className='title footer-title'>Contacto Ocozocoautla</h2>
+          {/* <h2 className='title footer-title'>Contacto Ocozocoautla</h2> */}
           <div className='footer-nav-content'>
             <ul role="list" className='footer-nav-links last w-list-unstyled'>
               <li className='footer-nav-link-item'>
