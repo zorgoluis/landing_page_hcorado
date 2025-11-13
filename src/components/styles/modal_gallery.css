@@ -1,0 +1,8 @@
+.moda_gallery {
+  background-color: var(--secondary-1);
+  border-radius: 2rem;
+}
+
+.modal-content {
+  border-radius: 2rem;
+}

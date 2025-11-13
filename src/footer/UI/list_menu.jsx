@@ -1,5 +1,3 @@
-import React from 'react'
-
 const ListMenu = () => {
   return (
     <div className='w-layout-grid footer-grid'>
@@ -52,20 +50,38 @@ const ListMenu = () => {
             </ul>
           </div>
         </div> */}
-        <div className='footer-nav-box last'>
+        <div className='footer-nav-box'>
           <h2 className='title footer-title'>Contacto</h2>
           <div className='footer-nav-content'>
             <ul role="list" className='footer-nav-links last w-list-unstyled'>
               <li className='footer-nav-link-item'>
                 <p className='paragraph-small footer-address'>
-                  Álika Arte Dental. Valia Centro médico,&nbsp;5a. Avenida Nte. Ote. 1167&nbsp;Brasilia, 29010 Tuxtla Gutiérrez, Chis
+                  Corado Centro Dental - Endodoncia Especializada. &nbsp;Guatemala 10a, &nbsp;Estrella de Oriente, 29010 Tuxtla Gutiérrez, Chis.
                 </p>
               </li>
               <li className='footer-nav-link-item'>
                 <a className='footer-nav-link' href='mailto:heydicorados@gmail.com'>heydicorados@gmail.com</a>
               </li>
               <li className='footer-nav-link-item'>
-                <a className='footer-nav-link' href='tel:9612657825'>961-265-7825</a>
+                <a className='footer-nav-link' href='tel:9612733237'>{import.meta.env.VITE_NUMBER_PHONE}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className='footer-nav-box last'>
+          {/* <h2 className='title footer-title'>Contacto Ocozocoautla</h2> */}
+          <div className='footer-nav-content'>
+            <ul role="list" className='footer-nav-links last w-list-unstyled'>
+              <li className='footer-nav-link-item'>
+                <p className='paragraph-small footer-address'>
+                  Corado Centro Dental - Endodoncia Especializada. &nbsp;5 poniente 573, &nbsp;San Bernabé, 29140 Ocozocoautla, Chis.
+                </p>
+              </li>
+              <li className='footer-nav-link-item'>
+                <a className='footer-nav-link' href='mailto:heydicorados@gmail.com'>heydicorados@gmail.com</a>
+              </li>
+              <li className='footer-nav-link-item'>
+                <a className='footer-nav-link' href='tel:9612733237'>{import.meta.env.VITE_NUMBER_PHONE}</a>
               </li>
             </ul>
           </div>

@@ -1,6 +1,6 @@
-import React from 'react';
 import '../footer/styles/footer.css';
 import ListMenu from './UI/list_menu';
+import logo_white from '../assets/icons/logo_white.svg'
 
 const social_network = [
   {
@@ -16,7 +16,7 @@ const social_network = [
   {
     type: "Whatsapp",
     icon: "bi bi-whatsapp",
-    url: "https://wa.me/+5219612657825"
+    url: `https://wa.me/+521${import.meta.env.VITE_NUMBER_PHONE}`
   }
 ]
 
@@ -27,10 +27,18 @@ const BodyFooter = () => {
       <div className='container-default w-container'>
         <div className='top-content footer-top-content'>
           <a className='footer-logo-container w-inline-block w--current'>
-            <img className='footer-logo' />
+            <img className='footer-logo' src={logo_white} />
           </a>
           <p className='paragraph-small footer-top-content'>
-            CED PROF 12513439
+            Licenciatura en Cirujano Dentista<br />
+            Cédula profesional 12513439 <br />
+            ----------------------------------------------------------- <br />
+            Especialidad en Endodoncia <br />
+            Cédula Especialidad 15126908<br />
+            ----------------------------------------------------------- <br />
+            UNICACH-Universidad de Guadalajara<br />
+            <br />
+            Aviso de publicidad COFEPRIS: 2507015056X00545
           </p>
         </div>
         <div className='divider footer-divider-1'></div>
@@ -44,8 +52,8 @@ const BodyFooter = () => {
           </div>
           <div className='w-layout-grid footer-social-media-grid'>
           {
-            social_network.map((sn) => (
-              <a className='footer-social-media-link' target='_blank' href={sn.url} title={sn.type}>
+            social_network.map((sn, k) => (
+              <a key={`icon-${k}`} className='footer-social-media-link' target='_blank' href={sn.url} title={sn.type}>
                 <i className={sn.icon}></i>
               </a>
             ))

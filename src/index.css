@@ -2,8 +2,23 @@ html {
   scroll-behavior: smooth;
 }
 
+@font-face {
+  font-family: "GreycliffCF";
+  src: url("./assets/fonts/GreycliffCF-Regular.ttf") format("truetype");
+  font-weight: normal; 
+  font-style: normal;
+}
+
+@font-face { 
+  font-family: 'QuicheFlare'; 
+  src: url('./assets/fonts/QuicheFlare-Regular.otf') format('opentype');
+  font-weight: normal; 
+  font-style: normal;
+}
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
+  font-family: 'GreycliffCF', 'QuicheFlare', Roboto;
   line-height: 1.5;
   font-weight: 400;
 
@@ -17,7 +32,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
 
   --neutral-600: #5d7471;
-  --neutral-800: #323949;
+  --neutral-800: #383569;
   --primary-1: #ab95c6;
   --secondary-1: #8ac5be;
   --neutral-100: white;

@@ -36,16 +36,6 @@
   padding-bottom: 0;
 }
 
-.subtitle {
-  color: var(--secondary-1);
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 1.125em;
-}
-
 .title.home-doctor {
   color: var(--neutral-100) !important;
 }
@@ -53,6 +43,10 @@
 .paragraph.home-doctor {
   color: var(--neutral-100);
   margin-bottom: 35px;
+}
+
+.subtitle.home-doctor {
+  color: var(--neutral-800);
 }
 
 .bg-secondary-1 {

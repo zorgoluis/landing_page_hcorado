@@ -1,115 +1,156 @@
-import React, { useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
-import {AdvancedMarker, APIProvider, InfoWindow, Map, Pin, useAdvancedMarkerRef} from '@vis.gl/react-google-maps';
+import {AdvancedMarker, APIProvider, InfoWindow, Map, useAdvancedMarkerRef} from '@vis.gl/react-google-maps';
 import '../styles/located.css';
-import img_art_1 from '../../assets/image-6-blog-article-doctor-template1-new.png';
-import img_art_2 from '../../assets/image-6-blog-article-doctor-template2.jpg';
-import img_art_3 from '../../assets/image-6-blog-article-doctor-template3-new.jpg';
-import { CardVariants, MinCardVariant, TextVariant } from '../../helper/animation';
+import { getAnalytics, logEvent } from "firebase/analytics";
+// import img_demo from '../../assets/image-6-blog-article-doctor-template2.jpg';
+import { CardVariants, TextVariant } from '../../helper/animation';
 import icono from '../../assets/icons/Imagotipo_negativo.svg'
+import { CarouselLocations } from '../../components/carousel_locations';
+import videoCoita from '../../assets/coita-video.mp4';
+import videoTuxtla from '../../assets/tuxtla-video.mp4';
 
-const articles = [
+const sectionTuxtla = [
+  {
+    section: "Instalaciones",
+    title: "",
+    context: "Cómodo acceso, estacionamiento gratuito y seguro, Sala de espera amplia, climatizada y moderna. Equipos modernos, radiografia digitales y lo último en tecnología para tú atención",
+  },
+  // {
+  //   section: "Sala de espera",
+  //   title: "",
+  //   context: "Sala de espera amplia, climatizada y moderna",
+  // },
+  // {
+  //   section: "Consultorio",
+  //   title: "",
+  //   context: "Equipos modernos, radiografia digitales y lo último en tecnología para tú atención",
+  // }
+]
+
+const sectionCoita = [
   {
     section: "Instalaciones",
     title: "",
     context: "Cómodo acceso, estacionamiento gratuito y seguro",
-    image: img_art_1
   },
   {
     section: "Sala de espera",
     title: "",
     context: "Sala de espera amplia, climatizada y moderna",
-    image: img_art_2
   },
   {
     section: "Consultorio",
     title: "",
     context: "Equipos modernos, radiografia digitales y lo último en tecnología para tú atención",
-    image: img_art_3
   }
 ]
 
 const LocatedSection = () => {
 
-  const [infowindowOpen, setInfowindowOpen] = useState(true);
-  const [markerRef, marker] = useAdvancedMarkerRef();
+  const coordTux = useMemo(() => (
+    {lat: 16.775444878997085, lng: -93.09865865069378}
+  ), []);
+
+  const coordCoita = useMemo(() => (
+    {lat: 16.76458164538728, lng: -93.37970200989359}
+  ), []);
+
+  // Calcular el centro entre las dos coordenadas
+  const centerCoord = useMemo(() => {
+    const centerLat = (coordTux.lat + coordCoita.lat) / 2;
+    const centerLng = (coordTux.lng + coordCoita.lng) / 2;
+    return { lat: centerLat, lng: centerLng };
+  }, [coordTux, coordCoita]);
+
+  const [infowindowOpenTux, setInfowindowOpenTux] = useState(true);
+  const [markerRefTux, markerTux] = useAdvancedMarkerRef();
+
+  const [infowindowOpenCoita, setInfowindowOpenCoita] = useState(true);
+  const [markerRefCoita, markerCoita] = useAdvancedMarkerRef();
+
+  const openInMapTux = useCallback(() => {
+    const analytics = getAnalytics();
+    logEvent(analytics, 'open_view_map_tux');
+
+    window.open(`https://maps.google.com?q=${coordTux.lat},${coordTux.lng}`, '_blank')
+  }, [coordTux])
+
+  const openInMapCoita = useCallback(() => {
+    const analytics = getAnalytics();
+    logEvent(analytics, 'open_view_map_coita');
+
+    window.open(`https://maps.google.com?q=${coordCoita.lat},${coordCoita.lng}`, '_blank')
+  }, [coordCoita])
 
   return (
     <motion.section 
       className='section' 
       id="ubicame"
-      initial="offscreen"
-      whileInView="onscreen"
-      viewport={{ once: true, amount: 0.8 }}
     >
       <motion.div className='container-medium-618px home-located' variants={TextVariant}>
-        <div className='subtitle'>Establecimientos</div>
+        <div className='subtitle'>Establecimiento</div>
         <h2>Experiencia dental positiva y relajante</h2>
         <p>
-          Seinte la diferencia de un consultorio que combina modernidad y calidez en cada consulta 
+          Siente la diferencia de un consultorio que combina modernidad y calidez en cada consulta 
         </p>
       </motion.div>
       <div className='container-default w-container'>
         <div className='w-dyn-list'>
           <div role="list" className='home-blog-grid w-dyn-items'>
-            {
-              articles.map((art, index) => (
-                <motion.div key={"art-card"+index} className='blog-article-item w-dyn-item' variants={MinCardVariant}>
-                  <div className='blog-article-item-wrapper'>
-                    <a className='image-wrapper blog-article-item-image w-inline-block'>
-                      <img src={art.image} className='image blog-article-item-image' />
-                    </a>
-                    <a className='card blog-article-item w-inline-block'>
-                      <div className='card-blog-article-item-about'>
-                        <div className='subtitle color-primary-1 card-blog-article-item-about'>{art.section}</div>
-                        {/* <div className='card-blog-article-item-about-divider'></div> */}
-                        {/* <div>September 1, 2022</div> */}
-                      </div>
-                      <div className='card-blog-article-item-content'>
-                        <h3 className='title card-blog-article-item'>
-                          {art.title}
-                        </h3>
-                        <p>
-                          {art.context}
-                        </p>
-                      </div>
-                      <div></div>
-                    </a>
-                  </div>
-                </motion.div>
-              ))
-            }
+            <CarouselLocations title='Ocozocoautla' video={videoCoita} sections={sectionCoita} />
+            <CarouselLocations title='Tuxtla Gtz' video={videoTuxtla} sections={sectionTuxtla} />
           </div>
         </div>
         <motion.div style={{ width: "100%"}} variants={CardVariants}>
-          <APIProvider apiKey={'AIzaSyAQ_qXCJiXnIyRq7QS3RXJNtYaxnSkREmA'}>
+          <APIProvider apiKey={`${import.meta.env.VITE_KEY_GOOGLE_MAP}`}>
             <Map
               id='drmap'
               mapId="c54d301a0e46f31e"
               style={{width: '100%', height: '500px'}}
-              defaultCenter={{lat: 16.76123925592508, lng: -93.10539342629392}}
-              defaultZoom={18}
+              defaultCenter={centerCoord}
+              defaultZoom={12}
               gestureHandling={'greedy'}
               disableDefaultUI={true}
               mapTypeId={'roadmap'}
             >
               <AdvancedMarker
-                ref={markerRef}
+                ref={markerRefTux}
                 title={'Dra. Heydi Corado'}
-                position={{lat: 16.7610617413711, lng: -93.10540296219857}}
-                onClick={() => setInfowindowOpen(true)}
+                position={coordTux}
+                onClick={() => setInfowindowOpenTux(true)}
               >
                 <div style={{ background: "var(--neutral-800)", padding: 10, borderRadius: 32 }}>
                   <img width={45} height={45} src={icono} />
                 </div>
               </AdvancedMarker>
-              {infowindowOpen && (
+              {infowindowOpenTux && (
                 <InfoWindow
-                  anchor={marker}
+                  anchor={markerTux}
                   maxWidth={200}
-                  onCloseClick={() => setInfowindowOpen(false)}>
-                    Álika Arte Dental. Valia Centro médico, 5a. Avenida Nte. Ote. 1167, Brasilia, 29010 Tuxtla Gutiérrez, Chis.&nbsp;
-                    <a target='_blank' href='https://maps.google.com?q=16.7610617413711,-93.10540296219857'>Abrir mapa</a>
+                  onCloseClick={() => setInfowindowOpenTux(false)}>
+                    Guatemala 10a, Estrella de Oriente, 29010 Tuxtla Gutiérrez, Chis. &nbsp;
+                    <a onClick={openInMapTux}  style={{ cursor: "pointer", textDecoration: "undeline", color: "blue"}}>Abrir mapa</a>
+                </InfoWindow>
+              )}
+
+              <AdvancedMarker
+                ref={markerRefCoita}
+                title={'Dra. Heydi Corado'}
+                position={coordCoita}
+                onClick={() => setInfowindowOpenCoita(true)}
+              >
+                <div style={{ background: "var(--neutral-800)", padding: 10, borderRadius: 32 }}>
+                  <img width={45} height={45} src={icono} />
+                </div>
+              </AdvancedMarker>
+              {infowindowOpenCoita && (
+                <InfoWindow
+                  anchor={markerCoita}
+                  maxWidth={200}
+                  onCloseClick={() => setInfowindowOpenCoita(false)}>
+                    5 poniente 573, entre 4 y 5 norte, San Bernabé, 29140 Ocozocoautla de Espinosa, Chis. &nbsp;
+                    <a onClick={openInMapCoita}  style={{ cursor: "pointer", textDecoration: "undeline", color: "blue"}}>Abrir mapa</a>
                 </InfoWindow>
               )}
             </Map>

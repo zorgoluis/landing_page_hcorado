@@ -10,7 +10,7 @@
 }
 
 .footer-logo {
-  width: 126px;
+  width: 200px;
 }
 
 .footer-logo-container {
@@ -96,8 +96,8 @@
 }
 
 .footer-social-media-link {
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
   min-width: 38px;
   color: var(--neutral-100);
   background-color: rgba(255, 255, 255, .15);
@@ -105,7 +105,7 @@
   justify-content: center;
   align-items: center;
   font-family: Icons Doctor Template, sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   text-decoration: none;
   transition: transform .3s, background-color .3s, color .3s;
   display: flex;
@@ -198,6 +198,11 @@
     align-self: stretch;
     margin-bottom: 20px;
   }
+
+  .top-content.footer-top-content {
+    flex-direction: column;
+    align-items: center;
+}
 }
 
 @media screen and (max-width: 479px) {

@@ -1,0 +1,246 @@
+/* Modal de Publicaciones */
+.publication-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+  backdrop-filter: blur(5px);
+}
+
+.publication-modal {
+  background: white;
+  border-radius: 16px;
+  max-width: 600px;
+  max-height: 80vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.publication-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  z-index: 10;
+  transition: all 0.2s ease;
+}
+
+.publication-close-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+  transform: scale(1.1);
+}
+
+.publication-content {
+  width: 100%;
+  height: 100%;
+}
+
+.publication-swiper {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+}
+
+.publication-slide {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+}
+
+.publication-image-container {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  min-height: 250px;
+}
+
+.publication-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px 16px 0 0;
+}
+
+.publication-info {
+  padding: 25px;
+  background: white;
+  border-radius: 0 0 16px 16px;
+  text-align: center;
+}
+
+.publication-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--neutral-800, #333);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.publication-description {
+  font-size: 16px;
+  color: var(--neutral-600, #666);
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.publication-btn {
+  background: var(--primary-color, #007bff);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.publication-btn:hover {
+  background: var(--primary-dark, #0056b3);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+}
+
+/* Estilos para los controles de Swiper */
+.publication-swiper .swiper-button-next,
+.publication-swiper .swiper-button-prev {
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-top: -20px;
+}
+
+.publication-swiper .swiper-button-next:after,
+.publication-swiper .swiper-button-prev:after {
+  font-size: 18px;
+}
+
+.publication-swiper .swiper-button-next:hover,
+.publication-swiper .swiper-button-prev:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.publication-swiper .swiper-pagination {
+  bottom: 15px;
+}
+
+.publication-swiper .swiper-pagination-bullet {
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 1;
+}
+
+.publication-swiper .swiper-pagination-bullet-active {
+  background: white;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .publication-modal-overlay {
+    padding: 15px;
+  }
+  
+  .publication-modal {
+    max-height: 85vh;
+  }
+
+  .publication-swiper {
+    min-height: 350px;
+  }
+
+  .publication-image-container {
+    min-height: 200px;
+  }
+
+  .publication-info {
+    padding: 20px;
+  }
+
+  .publication-title {
+    font-size: 20px;
+  }
+
+  .publication-description {
+    font-size: 14px;
+  }
+
+  .publication-btn {
+    padding: 10px 25px;
+    font-size: 14px;
+  }
+
+  .publication-close-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .publication-modal-overlay {
+    padding: 10px;
+  }
+
+  .publication-swiper {
+    min-height: 320px;
+  }
+
+  .publication-image-container {
+    min-height: 180px;
+  }
+
+  .publication-info {
+    padding: 15px;
+  }
+
+  .publication-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .publication-description {
+    font-size: 13px;
+    margin-bottom: 15px;
+  }
+
+  .publication-btn {
+    padding: 8px 20px;
+    font-size: 13px;
+  }
+}

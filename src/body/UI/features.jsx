@@ -13,7 +13,7 @@ const FeaturesSections = () => {
       className='feature_content_feature'
       initial="offscreen"
       whileInView="onscreen"
-      viewport={{ once: true, amount: 0.8 }}
+      viewport={{ once: true, amount: "some" }}
     >
       <div className='container-default'>
         <Row className='feature_row_content'>
@@ -23,7 +23,9 @@ const FeaturesSections = () => {
                 <Card.Body>
                   <img src={icon_1} className='feature_image'/>
                   <h2 className='feature_title'>Urgencias</h2>
-                  <p className='feature_paragraph-small'>Interconsultas con otras especialidades, disponiblidad de citas y atención a urgencias</p>
+                  <p className='feature_paragraph-small'>
+                    Disponiblidad de citas y atención urgente a tu dolor dental.
+                  </p>
                 </Card.Body>
               </Card>
             </motion.div>
@@ -33,7 +35,7 @@ const FeaturesSections = () => {
               <Card border='light'>
                 <Card.Body>
                   <img src={icon_2} className='feature_image'/>
-                  <h2 className='feature_title'>Instalación y tecgnología</h2>
+                  <h2 className='feature_title'>Instalaciones y tecnología</h2>
                   <p className='feature_paragraph-small'>Contamos con tecnología de última generación para diagnósticos precisos y tratamientos efectivos.</p>
                 </Card.Body>
               </Card>
@@ -45,7 +47,7 @@ const FeaturesSections = () => {
                 <Card.Body>
                   <img src={icon_3} className='feature_image'/>
                   <h2 className='feature_title'>Atención personalizada</h2>
-                  <p className='feature_paragraph-small'>Me preocupo por hacerte sentir cómodo y seguro, atendiendo cada duda y acompañandote en todo momento.</p>
+                  <p className='feature_paragraph-small'>Me preocupo por hacerte sentir cómodo y seguro, atendiendo cada duda y acompañándote en todo momento.</p>
                 </Card.Body>
               </Card>
             </motion.div>
