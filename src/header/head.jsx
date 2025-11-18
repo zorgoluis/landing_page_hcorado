@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
 import { motion } from "framer-motion";
 import { getAnalytics, logEvent } from "firebase/analytics";
 import './styles/head.css'
