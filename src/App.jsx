@@ -33,10 +33,10 @@ function App() {
       breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs']}
       minBreakpoint="xs"
     >
-      <PublicitationImg 
+      {/* <PublicitationImg 
         autoShow={true}
         showDuration={0}
-      />
+      /> */}
       <TopHead />
       <Head />
       <BodySections />
