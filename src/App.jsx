@@ -1,6 +1,6 @@
 import { ThemeProvider } from 'react-bootstrap';
 import { logEvent } from "firebase/analytics";
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, HashRouter } from 'react-router-dom';
 import { useContext, useEffect } from 'react';
 import './App.css'
 import Head from './header/head'
@@ -62,7 +62,8 @@ function App() {
   );
 
   return (
-    <Routes>
+    <HashRouter>
+      <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/facturar" element={<Facturacion />} />
       <Route path="/login" element={<Login />} />
@@ -84,6 +85,7 @@ function App() {
       />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
+      </HashRouter>
   );
 }
 

@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import { logoutUser } from '../services/authService';
 import DashboardMenu from '../components/DashboardMenu';
@@ -31,12 +31,11 @@ const Dashboard = () => {
         </div>
 
         <div className="dashboard-grid">
-          <a href="/registros" className="dashboard-card registros">
+          <Link to="/registros" className="dashboard-card registros">
             <i className="card-icon bi bi-file-text"></i>
             <h3 className="card-title">Registros</h3>
             <p className="card-description">Ver solicitudes de facturas por mes</p>
-          </a>
-
+          </Link>
           <div className="dashboard-card perfil">
             <i className="card-icon bi bi-person-fill"></i>
             <h3 className="card-title">Perfil</h3>

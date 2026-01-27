@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import logo from '../assets/icons/Imagotipo_negativo.svg';
 import { solicitarFactura, getPacientePorRfc } from '../services/facturasService';
 import './facturacion.css';
+import { REGIMENES_FISCALES, obtenerUsosPorRegimen } from '../helper/satCatalogos';
 
 const rfcRegex = /^[A-ZÑ&]{3,4}\d{6}[A-V0-9]{3}$/;
 
@@ -25,33 +26,13 @@ const Facturacion = () => {
   const [loading, setLoading] = useState(false);
   const [loadingPaciente, setLoadingPaciente] = useState(false);
 
-  const regimenesFiscales = [
-    'Régimen de personas físicas con actividades empresariales',
-    'Régimen de personas morales',
-    'Personas físicas con actividades profesionales',
-    'Otros',
-  ];
+  const regimenSeleccionado = REGIMENES_FISCALES.find(
+    r => r.label === formData.regimenFiscal
+  );
 
-  const usosCFDI = [
-    'Adquisición de mercancías',
-    'Devoluciones, descuentos y bonificaciones',
-    'Gastos en general',
-    'Construcciones',
-    'Mobiario y equipo de oficina',
-    'Equipo de transporte',
-    'Equipo de cómputo',
-    'Otros activos fijos',
-    'Activos diferidos',
-    'Alimentación',
-    'Vestuario y uniformes',
-    'Servicios profesionales',
-    'Servicios administrativos',
-    'Servicios de publicidad',
-    'Servicios de mantenimiento',
-    'Servicios de consultoría',
-    'Servicios de limpieza',
-    'Otros servicios',
-  ];
+  const usosDisponibles = regimenSeleccionado
+    ? obtenerUsosPorRegimen(regimenSeleccionado.value)
+    : [];
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -211,164 +192,176 @@ const Facturacion = () => {
           {error && <div className="error-message">{error}</div>}
           {submitted && <div className="success-message">¡Solicitud enviada correctamente!</div>}
 
-        <form onSubmit={handleSubmit} className="facturacion-form">
-          {/* RFC - Campo completo */}
-          <div className="form-row form-row-full">
-            <div className="form-group">
-              <label htmlFor="rfc">RFC *</label>
-              <input
-                type="text"
-                id="rfc"
-                name="rfc"
-                value={formData.rfc}
-                onChange={handleChange}
-                onBlur={handleRfcBlur}
-                placeholder="Ej: ABC123456XYZ"
-                maxLength="13"
-                required
-              />
-            </div>
-          </div>
-
-          {/* Nombre Completo - Campo completo */}
-          <div className="form-row form-row-full">
-            <div className="form-group">
-              <label htmlFor="nombreCompleto">Nombre Completo *</label>
-              <input
-                type="text"
-                id="nombreCompleto"
-                name="nombreCompleto"
-                value={formData.nombreCompleto}
-                onChange={handleChange}
-                placeholder="Tu nombre completo"
-                required
-              />
-            </div>
-          </div>
-
-          {/* Código Postal + Número Telefónico */}
-          <div className="form-row">
-            <div className="form-group">
-              <label htmlFor="codigoPostal">Código Postal *</label>
-              <input
-                type="text"
-                id="codigoPostal"
-                name="codigoPostal"
-                value={formData.codigoPostal}
-                onChange={handleChange}
-                placeholder="5 dígitos"
-                maxLength="5"
-                pattern="\d{5}"
-                required
-              />
+          <form onSubmit={handleSubmit} className="facturacion-form">
+            {/* RFC - Campo completo */}
+            <div className="form-row form-row-full">
+              <div className="form-group">
+                <label htmlFor="rfc">RFC *</label>
+                <input
+                  type="text"
+                  id="rfc"
+                  name="rfc"
+                  value={formData.rfc}
+                  onChange={handleChange}
+                  onBlur={handleRfcBlur}
+                  placeholder="Ej: ABC123456XYZ"
+                  maxLength="13"
+                  required
+                />
+              </div>
             </div>
 
-            <div className="form-group">
-              <label htmlFor="numeroTelefonico">Número Telefónico *</label>
-              <input
-                type="tel"
-                id="numeroTelefonico"
-                name="numeroTelefonico"
-                value={formData.numeroTelefonico}
-                onChange={handleChange}
-                placeholder="10 dígitos"
-                required
-              />
-            </div>
-          </div>
-
-          {/* Régimen Fiscal - Campo completo */}
-          <div className="form-row form-row-full">
-            <div className="form-group">
-              <label htmlFor="regimenFiscal">Régimen Fiscal *</label>
-              <select
-                id="regimenFiscal"
-                name="regimenFiscal"
-                value={formData.regimenFiscal}
-                onChange={handleChange}
-                required
-              >
-                <option value="">-- Selecciona un régimen fiscal --</option>
-                {regimenesFiscales.map((regimen, index) => (
-                  <option key={index} value={regimen}>
-                    {regimen}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
-
-          {/* Uso de CFDI - Campo completo */}
-          <div className="form-row form-row-full">
-            <div className="form-group">
-              <label htmlFor="usoCFDI">Uso de CFDI *</label>
-              <select
-                id="usoCFDI"
-                name="usoCFDI"
-                value={formData.usoCFDI}
-                onChange={handleChange}
-                required
-              >
-                <option value="">-- Selecciona un uso de CFDI --</option>
-                {usosCFDI.map((uso, index) => (
-                  <option key={index} value={uso}>
-                    {uso}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
-
-          {/* Correo + Monto */}
-          <div className="form-row">
-            <div className="form-group">
-              <label htmlFor="correo">Correo Electrónico *</label>
-              <input
-                type="email"
-                id="correo"
-                name="correo"
-                value={formData.correo}
-                onChange={handleChange}
-                placeholder="tu@correo.com"
-                required
-              />
+            {/* Nombre Completo - Campo completo */}
+            <div className="form-row form-row-full">
+              <div className="form-group">
+                <label htmlFor="nombreCompleto">Nombre Completo *</label>
+                <input
+                  type="text"
+                  id="nombreCompleto"
+                  name="nombreCompleto"
+                  value={formData.nombreCompleto}
+                  onChange={handleChange}
+                  placeholder="Tu nombre completo"
+                  required
+                />
+              </div>
             </div>
 
-            <div className="form-group">
-              <label htmlFor="monto">Monto *</label>
-              <input
-                type="number"
-                id="monto"
-                name="monto"
-                value={formData.monto}
-                onChange={handleChange}
-                placeholder="0.00"
-                step="0.01"
-                min="0"
-                required
-              />
-            </div>
-          </div>
+            {/* Código Postal + Número Telefónico */}
+            <div className="form-row">
+              <div className="form-group">
+                <label htmlFor="codigoPostal">Código Postal *</label>
+                <input
+                  type="text"
+                  id="codigoPostal"
+                  name="codigoPostal"
+                  value={formData.codigoPostal}
+                  onChange={handleChange}
+                  placeholder="5 dígitos"
+                  maxLength="5"
+                  pattern="\d{5}"
+                  required
+                />
+              </div>
 
-          {/* Fecha - Campo completo */}
-          <div className="form-row form-row-full">
-            <div className="form-group">
-              <label htmlFor="fecha">Fecha de Servicio *</label>
-              <input
-                type="date"
-                id="fecha"
-                name="fecha"
-                value={formData.fecha}
-                onChange={handleChange}
-                required
-              />
+              <div className="form-group">
+                <label htmlFor="numeroTelefonico">Número Telefónico *</label>
+                <input
+                  type="tel"
+                  id="numeroTelefonico"
+                  name="numeroTelefonico"
+                  value={formData.numeroTelefonico}
+                  onChange={handleChange}
+                  placeholder="10 dígitos"
+                  required
+                />
+              </div>
             </div>
-          </div>
 
-          <button type="submit" className="submit-btn" disabled={loading}>
-            {loading ? 'Enviando...' : 'Solicitar Factura'}
-          </button>
-        </form>
+            {/* Régimen Fiscal - Campo completo */}
+            <div className="form-row form-row-full">
+              <div className="form-group">
+                <label htmlFor="regimenFiscal">Régimen Fiscal *</label>
+                <select
+                  id="regimenFiscal"
+                  name="regimenFiscal"
+                  value={formData.regimenFiscal}
+                  onChange={(e) => {
+                    setFormData(prev => ({
+                      ...prev,
+                      regimenFiscal: e.target.value, // guarda LABEL
+                      usoCFDI: '' // reset uso CFDI
+                    }));
+                  }}
+                  required
+                >
+                  <option value="">-- Selecciona un régimen fiscal --</option>
+                  {REGIMENES_FISCALES.map((regimen, index) => (
+                    <option key={regimen.value} value={regimen.label}>
+                      {regimen.label}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
+            {/* Uso de CFDI - Campo completo */}
+            <div className="form-row form-row-full">
+              <div className="form-group">
+                <label htmlFor="usoCFDI">Uso de CFDI *</label>
+                <select
+                  id="usoCFDI"
+                  name="usoCFDI"
+                  value={formData.usoCFDI}
+                  onChange={(e) =>
+                    setFormData(prev => ({
+                      ...prev,
+                      usoCFDI: e.target.value // guarda LABEL
+                    }))
+                  }
+                  disabled={!formData.regimenFiscal}
+                  required
+                >
+                  <option value="">-- Selecciona un uso de CFDI --</option>
+                  {usosDisponibles.map((uso, index) => (
+                    <option key={uso.value} value={uso.label}>
+                      {uso.label}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
+            {/* Correo + Monto */}
+            <div className="form-row">
+              <div className="form-group">
+                <label htmlFor="correo">Correo Electrónico *</label>
+                <input
+                  type="email"
+                  id="correo"
+                  name="correo"
+                  value={formData.correo}
+                  onChange={handleChange}
+                  placeholder="tu@correo.com"
+                  required
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="monto">Monto *</label>
+                <input
+                  type="number"
+                  id="monto"
+                  name="monto"
+                  value={formData.monto}
+                  onChange={handleChange}
+                  placeholder="0.00"
+                  step="0.01"
+                  min="0"
+                  required
+                />
+              </div>
+            </div>
+
+            {/* Fecha - Campo completo */}
+            <div className="form-row form-row-full">
+              <div className="form-group">
+                <label htmlFor="fecha">Fecha de Servicio *</label>
+                <input
+                  type="date"
+                  id="fecha"
+                  name="fecha"
+                  value={formData.fecha}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+            </div>
+
+            <button type="submit" className="submit-btn" disabled={loading}>
+              {loading ? 'Enviando...' : 'Solicitar Factura'}
+            </button>
+          </form>
         </div>
       </div>
     </>
