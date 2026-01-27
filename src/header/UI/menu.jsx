@@ -44,7 +44,7 @@ const MenuHead = () => {
               <Nav.Link href="#servicios">Servicios</Nav.Link>
               <Nav.Link href="#sabias-que">Sabias que...</Nav.Link>
               <Nav.Link href="#ubicame">Ubicame</Nav.Link>
-              <Nav.Link onClick={() => { navigate('/facturacion'); handleClose(); }}>Facturar</Nav.Link>
+              <Nav.Link onClick={() => { navigate('/facturar'); handleClose(); }}>Facturar</Nav.Link>
             </Nav>
           </Offcanvas.Body>
         </Navbar.Offcanvas>

@@ -1,14 +1,41 @@
 import { ThemeProvider } from 'react-bootstrap';
 import { logEvent } from "firebase/analytics";
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { useContext, useEffect } from 'react';
 import './App.css'
 import Head from './header/head'
 import BodySections from './body/body_sections'
 import BodyFooter from './footer/body_footer'
 import TopHead from './top'
 import Facturacion from './pages/Facturacion'
-import { useEffect } from 'react';
+import Login from './pages/Login'
+import Dashboard from './pages/Dashboard'
+import Registros from './pages/Registros'
 import { analytics } from './services/firebaseClient';
+import { AuthContext } from './context/AuthContext';
+
+// Componente para rutas protegidas
+const PrivateRoute = ({ children }) => {
+  const { user, loading } = useContext(AuthContext);
+  
+  if (loading) {
+    return (
+      <div style={{ 
+        display: 'flex', 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        minHeight: '100vh',
+        background: 'var(--neutral-200)'
+      }}>
+        <div style={{ fontSize: '18px', color: 'var(--neutral-600)' }}>
+          Cargando...
+        </div>
+      </div>
+    );
+  }
+  
+  return user ? children : <Navigate to="/login" replace />;
+};
 
 function App() {
 
@@ -37,7 +64,25 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/facturacion" element={<Facturacion />} />
+      <Route path="/facturar" element={<Facturacion />} />
+      <Route path="/login" element={<Login />} />
+      <Route 
+        path="/dashboard" 
+        element={
+          <PrivateRoute>
+            <Dashboard />
+          </PrivateRoute>
+        } 
+      />
+      <Route 
+        path="/registros" 
+        element={
+          <PrivateRoute>
+            <Registros />
+          </PrivateRoute>
+        } 
+      />
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 }
