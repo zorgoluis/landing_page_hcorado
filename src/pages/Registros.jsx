@@ -11,7 +11,7 @@ import './registros.css';
 const Registros = () => {
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
-  
+
   const today = new Date();
   const [year, setYear] = useState(today.getFullYear());
   const [month, setMonth] = useState(today.getMonth() + 1);
@@ -24,7 +24,7 @@ const Registros = () => {
   const [uploadLoading, setUploadLoading] = useState(false);
   const [uploadError, setUploadError] = useState('');
   const [dragActive, setDragActive] = useState(false);
-  
+
   const meses = [
     'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
     'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
@@ -242,11 +242,11 @@ const Registros = () => {
       } else if (date instanceof Date) {
         d = date;
       }
-      
+
       if (isNaN(d.getTime())) {
         return '-';
       }
-      
+
       return d.toLocaleDateString('es-ES', {
         year: 'numeric',
         month: '2-digit',
@@ -273,7 +273,7 @@ const Registros = () => {
   return (
     <div className="registros-container">
       <DashboardMenu user={user} onLogout={handleLogout} />
-      
+
       <div className="registros-wrapper">
         <div className="registros-header">
           <div>
@@ -291,21 +291,21 @@ const Registros = () => {
 
         {/* Selector de Mes */}
         <div className="month-selector">
-          <button 
+          <button
             className="btn-month-nav"
             onClick={handlePreviousMonth}
             title="Mes anterior"
           >
             <i className="bi bi-chevron-left"></i>
           </button>
-          
+
           <div className="month-display">
             <h2 className="month-title">
               {meses[month - 1]} {year}
             </h2>
           </div>
 
-          <button 
+          <button
             className="btn-month-nav"
             onClick={handleNextMonth}
             title="Próximo mes"
@@ -313,7 +313,7 @@ const Registros = () => {
             <i className="bi bi-chevron-right"></i>
           </button>
 
-          <button 
+          <button
             className="btn-today"
             onClick={handleToday}
             title="Mes actual"
@@ -333,7 +333,7 @@ const Registros = () => {
               <p>Solicitudes</p>
             </div>
           </div>
-          
+
           <div className="stat-card">
             <div className="stat-icon">
               <i className="bi bi-cash-coin"></i>
@@ -372,8 +372,8 @@ const Registros = () => {
           ) : (
             <div className="registros-grid">
               {facturas.map((factura) => (
-                <div 
-                  key={factura.id} 
+                <div
+                  key={factura.id}
                   className="registro-card"
                 >
                   <div className="card-header">
@@ -427,6 +427,14 @@ const Registros = () => {
 
                     <div className="info-row">
                       <span className="label">
+                        <i className="bi bi-x-circle"></i>
+                        Código Postal
+                      </span>
+                      <span className="value email">{factura.paciente.codigoPostal || '-'}</span>
+                    </div>
+
+                    <div className="info-row">
+                      <span className="label">
                         <i className="bi bi-envelope"></i> Email
                       </span>
                       <span className="value email">{factura.correo || '-'}</span>
@@ -444,22 +452,22 @@ const Registros = () => {
                         <i className="bi bi-calendar"></i> Fecha de Servicio
                       </span>
                       <span className="value">
-                        {factura.fecha 
+                        {factura.fecha
                           ? (() => {
-                              try {
-                                let d = factura.fecha;
-                                if (factura.fecha && typeof factura.fecha.toDate === 'function') {
-                                  d = factura.fecha.toDate();
-                                } else if (typeof factura.fecha === 'number') {
-                                  d = new Date(factura.fecha);
-                                } else if (typeof factura.fecha === 'string') {
-                                  d = new Date(factura.fecha);
-                                }
-                                return d.toLocaleDateString('es-ES');
-                              } catch (err) {
-                                return '-';
+                            try {
+                              let d = factura.fecha;
+                              if (factura.fecha && typeof factura.fecha.toDate === 'function') {
+                                d = factura.fecha.toDate();
+                              } else if (typeof factura.fecha === 'number') {
+                                d = new Date(factura.fecha);
+                              } else if (typeof factura.fecha === 'string') {
+                                d = new Date(factura.fecha);
                               }
-                            })()
+                              return d.toLocaleDateString('es-ES');
+                            } catch (err) {
+                              return '-';
+                            }
+                          })()
                           : '-'
                         }
                       </span>
@@ -522,7 +530,7 @@ const Registros = () => {
                   <h2>Enviar Archivos</h2>
                   <p className="modal-subtitle">RFC: {selectedFactura?.rfc}</p>
                 </div>
-                <button 
+                <button
                   className="btn-close"
                   onClick={handleCloseModalArchivos}
                 >
