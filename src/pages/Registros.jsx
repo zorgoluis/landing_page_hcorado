@@ -4,6 +4,8 @@ import { AuthContext } from '../context/AuthContext';
 import { logoutUser } from '../services/authService';
 import DashboardMenu from '../components/DashboardMenu';
 import { getFacturasPorMes } from '../services/facturasService';
+import { enviarFacturaPorEmail } from '../services/emailService';
+import { subirArchivoFactura } from '../services/storageService';
 import './registros.css';
 
 const Registros = () => {
@@ -163,24 +165,42 @@ const Registros = () => {
       return;
     }
 
+    if (!selectedFactura.correo) {
+      setUploadError('La factura no tiene un correo electrónico asociado');
+      return;
+    }
+
     setUploadLoading(true);
     setUploadError('');
 
     try {
-      // Aquí iría la lógica de envío a Firebase Storage
-      // Por ahora simularemos el envío
-      console.log('Enviando archivos para factura:', selectedFactura.id);
-      console.log('Archivos:', archivos);
+      // 1. Subir archivo a Firebase Storage
+      console.log('📤 Subiendo archivo a Firebase Storage...');
+      const archivoURL = await subirArchivoFactura(
+        archivos[0].file,
+        selectedFactura.id,
+        selectedFactura.rfc
+      );
 
-      // Simular delay de envío
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      console.log('✅ Archivo subido, URL:', archivoURL);
+
+      // 2. Enviar email con el enlace de descarga
+      console.log('📧 Enviando email con enlace de descarga...');
+      await enviarFacturaPorEmail({
+        toEmail: selectedFactura.correo,
+        nombrePaciente: selectedFactura.paciente?.nombreCompleto || 'Paciente',
+        rfc: selectedFactura.rfc,
+        telefono: selectedFactura.telefono,
+        monto: selectedFactura.monto,
+        archivoURL: archivoURL
+      });
 
       // Mostrar mensaje de éxito
-      alert('✅ Archivos enviados exitosamente para: ' + selectedFactura.rfc);
+      alert(`✅ Factura enviada exitosamente a: ${selectedFactura.correo}`);
       handleCloseModalArchivos();
     } catch (err) {
-      console.error('Error al enviar archivos:', err);
-      setUploadError('Error al enviar los archivos: ' + err.message);
+      console.error('Error al enviar factura:', err);
+      setUploadError('Error al enviar la factura: ' + (err.message || 'Intenta nuevamente'));
     } finally {
       setUploadLoading(false);
     }
