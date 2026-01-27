@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import '../styles/menu.css';
 import { Container, Nav, Navbar, Offcanvas } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import icon_root from '../../assets/icons/Imagotipo_negativo.svg';
 
 const MenuHead = () => {
-  const  expand= "md";
-
+  const expand = "md";
+  const navigate = useNavigate();
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -43,6 +44,7 @@ const MenuHead = () => {
               <Nav.Link href="#servicios">Servicios</Nav.Link>
               <Nav.Link href="#sabias-que">Sabias que...</Nav.Link>
               <Nav.Link href="#ubicame">Ubicame</Nav.Link>
+              <Nav.Link onClick={() => { navigate('/facturacion'); handleClose(); }}>Facturar</Nav.Link>
             </Nav>
           </Offcanvas.Body>
         </Navbar.Offcanvas>
