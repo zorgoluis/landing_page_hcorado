@@ -65,7 +65,7 @@ function App() {
     <HashRouter>
       <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/facturar" element={<Facturacion />} />
+      <Route path="/facturacion" element={<Facturacion />} />
       <Route path="/login" element={<Login />} />
       <Route 
         path="/dashboard" 
