@@ -53,6 +53,7 @@ export const solicitarFactura = async (payload) => {
     numeroTelefonico,
     monto,
     fecha,
+    metodoPago
   } = payload;
 
   const rfcNormalizado = normalizarRfc(rfc);
@@ -67,6 +68,7 @@ export const solicitarFactura = async (payload) => {
     monto: parseFloat(monto),
     fecha: fecha ? new Date(fecha) : null,
     createdAt: serverTimestamp(),
+    metodoPago: metodoPago
   };
 
   const facturaRef = await addDoc(collection(db, COLLECTION_FACTURAS), factura);
@@ -100,14 +102,14 @@ export const getFacturasPorMes = async (year, month) => {
     // Obtener datos de pacientes para cada factura
     for (const doc of snap.docs) {
       const factura = { id: doc.id, ...doc.data() };
-      
+
       // Obtener datos del paciente
       if (factura.pacienteId) {
         try {
           const pacienteSnap = await getDocs(
             query(collection(db, COLLECTION_PACIENTES), where('__name__', '==', factura.pacienteId))
           );
-          
+
           if (!pacienteSnap.empty) {
             const paciente = pacienteSnap.docs[0].data();
             factura.paciente = paciente;
@@ -135,19 +137,19 @@ export const getAllFacturas = async () => {
   try {
     const facturasRef = collection(db, COLLECTION_FACTURAS);
     const q = query(facturasRef, orderBy('createdAt', 'desc'));
-    
+
     const snap = await getDocs(q);
     const facturas = [];
 
     for (const doc of snap.docs) {
       const factura = { id: doc.id, ...doc.data() };
-      
+
       if (factura.pacienteId) {
         try {
           const pacienteSnap = await getDocs(
             query(collection(db, COLLECTION_PACIENTES), where('__name__', '==', factura.pacienteId))
           );
-          
+
           if (!pacienteSnap.empty) {
             const paciente = pacienteSnap.docs[0].data();
             factura.paciente = paciente;

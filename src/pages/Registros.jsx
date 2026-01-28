@@ -503,7 +503,17 @@ const Registros = () => {
                         </div>
                       </>
                     )}
+
+                    <div className="info-row">
+                      <span className="label">
+                        <i className="bi bi-credit-card"></i> Método de Pago
+                      </span>
+                      <span className="value">
+                        {factura.metodoPago || '-'}
+                      </span>
+                    </div>
                   </div>
+
 
                   <div className="card-footer">
                     <span className="factura-id">ID: {factura.id.substring(0, 8)}...</span>

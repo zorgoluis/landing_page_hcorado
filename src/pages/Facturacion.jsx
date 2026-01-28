@@ -7,6 +7,14 @@ import { REGIMENES_FISCALES, obtenerUsosPorRegimen } from '../helper/satCatalogo
 
 const rfcRegex = /^[A-ZÑ&]{3,4}\d{6}[A-V0-9]{3}$/;
 
+const METODO_PAGO = [
+  'Efectivo',
+  'Tarjeta de Crédito',
+  'Tarjeta de Débito',
+  'Transferencia electrónica',
+  'Otros'
+];
+
 const Facturacion = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -19,6 +27,7 @@ const Facturacion = () => {
     numeroTelefonico: '',
     monto: '',
     fecha: '',
+    metodoPago: '',
   });
 
   const [submitted, setSubmitted] = useState(false);
@@ -161,6 +170,7 @@ const Facturacion = () => {
         numeroTelefonico: '',
         monto: '',
         fecha: '',
+        metodoPago: '',
       });
     } catch (err) {
       console.error('Error al solicitar factura:', err);
@@ -283,10 +293,7 @@ const Facturacion = () => {
                   ))}
                 </select>
               </div>
-            </div>
 
-            {/* Uso de CFDI - Campo completo */}
-            <div className="form-row form-row-full">
               <div className="form-group">
                 <label htmlFor="usoCFDI">Uso de CFDI *</label>
                 <select
@@ -312,8 +319,9 @@ const Facturacion = () => {
               </div>
             </div>
 
+
             {/* Correo + Monto */}
-            <div className="form-row">
+            <div className="form-row form-row-full">
               <div className="form-group">
                 <label htmlFor="correo">Correo Electrónico *</label>
                 <input
@@ -327,24 +335,47 @@ const Facturacion = () => {
                 />
               </div>
 
-              <div className="form-group">
-                <label htmlFor="monto">Monto *</label>
-                <input
-                  type="number"
-                  id="monto"
-                  name="monto"
-                  value={formData.monto}
-                  onChange={handleChange}
-                  placeholder="0.00"
-                  step="0.01"
-                  min="0"
-                  required
-                />
+              <div className='form-row'>
+                <div className='form-group'>
+                  <label htmlFor="metodoPago">Forma de Pago *</label>
+                  <select
+                    id="metodoPago"
+                    name="metodoPago"
+                    value={formData.metodoPago}
+                    onChange={handleChange}
+                    required
+                  >
+                    <option value="">-- Selecciona una forma de pago --</option>
+                    {METODO_PAGO.map((forma, index) => (
+                      <option key={`formaPago-${index}`} value={forma}>
+                        {forma}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="monto">Monto *</label>
+                  <input
+                    type="number"
+                    id="monto"
+                    name="monto"
+                    value={formData.monto}
+                    onChange={handleChange}
+                    placeholder="0.00"
+                    step="0.01"
+                    min="0"
+                    required
+                  />
+                </div>
               </div>
+
+
+
             </div>
 
             {/* Fecha - Campo completo */}
-            <div className="form-row form-row-full">
+            <div className="form-row">
               <div className="form-group">
                 <label htmlFor="fecha">Fecha de Servicio *</label>
                 <input
