@@ -9,9 +9,9 @@ import { getAnalytics, logEvent } from 'firebase/analytics';
 import videoP from  '../../assets/video_presentation.mp4';
 
 const listCheck = [
-  { title: "15+ years of experience" },
-  { title: "Urgent 24-hour service" },
-  { title: "High quality care" }
+  { title: "Especialista en Endodoncia" },
+  { title: "Servicio urgente 24 horas" },
+  { title: "Atención de calidad" }
 ]
 const VideoSection = () => {
   const [showModal, setShowModal] = useState(false);
@@ -50,7 +50,7 @@ const VideoSection = () => {
     <section className='section'>
       <div className='container-medium-682px home-video'>
         <div className='subtitle'>Dra. Heydi Corado</div>
-        <h2 className='title home-video'>Ver Dr. Heydi video para aprender por qué es el médico adecuado para usted</h2>
+        <h2 className='title home-video'>Conoce a la Dra. Heydi y por qué es tu mejor opción dental</h2>
       </div>
       <div className='container-default w-container'>
         <div className='home-video-wrapper'>
@@ -62,9 +62,9 @@ const VideoSection = () => {
             </a>
           </div>
           <div className='card bg-neutral-200 home-video'>
-            <h3>Porque Dr. Heydi Corado?</h3>
+            <h3>¿Por qué elegir a la Dra. Heydi?</h3>
             <p className='paragraph card-home-video'>
-              Con más de 15 años de experiencia, la Dra. Heydi Corado se dedica a brindar atención médica de alta calidad y servicios urgentes las 24 horas a sus pacientes. Su enfoque compasivo y profesionalismo la convierten en la elección ideal para quienes buscan atención médica confiable y accesible.
+              Como Cirujana Dentista especializada en Endodoncia, la Dra. Heydi Corado se dedica a ofrecer soluciones dentales de alta calidad en dos consultorios modernos en Chiapas. Su enfoque compasivo, profesionalismo y compromiso con la excelencia la convierten en la opción ideal para quienes buscan atención dental confiable y accesible.
             </p>
             <div className='w-layout-grid card-home-video-features-grid'>
               {listCheck.map((item, index) => (
