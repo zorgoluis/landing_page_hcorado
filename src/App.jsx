@@ -1,34 +1,51 @@
 import { ThemeProvider } from 'react-bootstrap';
-import { initializeApp } from "firebase/app";
-import { getAnalytics, logEvent } from "firebase/analytics";
+import { logEvent } from "firebase/analytics";
+import { Routes, Route, Navigate, HashRouter } from 'react-router-dom';
+import { useContext, useEffect } from 'react';
 import './App.css'
 import Head from './header/head'
 import BodySections from './body/body_sections'
 import BodyFooter from './footer/body_footer'
 import TopHead from './top'
-import { PublicitationImg } from './components/publicitation_img'
-import { useEffect } from 'react';
+import Facturacion from './pages/Facturacion'
+import Login from './pages/Login'
+import Dashboard from './pages/Dashboard'
+import Registros from './pages/Registros'
+import { analytics } from './services/firebaseClient';
+import { AuthContext } from './context/AuthContext';
 
-const firebaseConfig = {
-  apiKey: `${import.meta.env.VITE_API_KEY_ANALYTIC}`,
-  authDomain: "endocorado.firebaseapp.com",
-  projectId: "endocorado",
-  storageBucket: "endocorado.appspot.com",
-  messagingSenderId: "1071754826508",
-  appId: `${import.meta.env.VITE_API_ID_ANALYTIC}`,
-  measurementId: "G-M577PQ2JEJ"
+// Componente para rutas protegidas
+const PrivateRoute = ({ children }) => {
+  const { user, loading } = useContext(AuthContext);
+  
+  if (loading) {
+    return (
+      <div style={{ 
+        display: 'flex', 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        minHeight: '100vh',
+        background: 'var(--neutral-200)'
+      }}>
+        <div style={{ fontSize: '18px', color: 'var(--neutral-600)' }}>
+          Cargando...
+        </div>
+      </div>
+    );
+  }
+  
+  return user ? children : <Navigate to="/login" replace />;
 };
 
 function App() {
 
   useEffect(() => {
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-    logEvent(analytics, "notification_received")
+    if (analytics) {
+      logEvent(analytics, "notification_received")
+    }
   }, [])
 
-  
-  return (
+  const HomePage = () => (
     <ThemeProvider
       breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs']}
       minBreakpoint="xs"
@@ -42,7 +59,34 @@ function App() {
       <BodySections />
       <BodyFooter />
     </ThemeProvider>
-  )
+  );
+
+  return (
+    <HashRouter>
+      <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/facturacion" element={<Facturacion />} />
+      <Route path="/login" element={<Login />} />
+      <Route 
+        path="/dashboard" 
+        element={
+          <PrivateRoute>
+            <Dashboard />
+          </PrivateRoute>
+        } 
+      />
+      <Route 
+        path="/registros" 
+        element={
+          <PrivateRoute>
+            <Registros />
+          </PrivateRoute>
+        } 
+      />
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
+      </HashRouter>
+  );
 }
 
 export default App
