@@ -5,7 +5,7 @@ import { solicitarFactura, getPacientePorRfc } from '../services/facturasService
 import './facturacion.css';
 import { REGIMENES_FISCALES, obtenerUsosPorRegimen } from '../helper/satCatalogos';
 
-const rfcRegex = /^[A-ZÑ&]{3,4}\d{6}[A-V0-9]{3}$/;
+const rfcRegex = /^[A-ZÑ&]{3,4}\d{6}[A-Z0-9]{3}$/;
 
 const METODO_PAGO = [
   'Efectivo',
@@ -13,6 +13,12 @@ const METODO_PAGO = [
   'Tarjeta de Débito',
   'Transferencia electrónica',
   'Otros'
+];
+
+const SEDES = [
+  'Tuxtla Gutierrez',
+  'Ocozocoautla',
+  'Externo'
 ];
 
 const Facturacion = () => {
@@ -28,6 +34,7 @@ const Facturacion = () => {
     monto: '',
     fecha: '',
     metodoPago: '',
+    sede: '',
   });
 
   const [submitted, setSubmitted] = useState(false);
@@ -109,6 +116,12 @@ const Facturacion = () => {
       return false;
     }
 
+    // Validación Sede
+    if (!formData.sede) {
+      setError('Debes seleccionar una sede.');
+      return false;
+    }
+
     return true;
   };
 
@@ -171,6 +184,7 @@ const Facturacion = () => {
         monto: '',
         fecha: '',
         metodoPago: '',
+        sede: '',
       });
     } catch (err) {
       console.error('Error al solicitar factura:', err);
@@ -286,7 +300,7 @@ const Facturacion = () => {
                   required
                 >
                   <option value="">-- Selecciona un régimen fiscal --</option>
-                  {REGIMENES_FISCALES.map((regimen, index) => (
+                  {REGIMENES_FISCALES.map((regimen) => (
                     <option key={regimen.value} value={regimen.label}>
                       {regimen.label}
                     </option>
@@ -310,7 +324,7 @@ const Facturacion = () => {
                   required
                 >
                   <option value="">-- Selecciona un uso de CFDI --</option>
-                  {usosDisponibles.map((uso, index) => (
+                  {usosDisponibles.map((uso) => (
                     <option key={uso.value} value={uso.label}>
                       {uso.label}
                     </option>
@@ -386,6 +400,23 @@ const Facturacion = () => {
                   onChange={handleChange}
                   required
                 />
+              </div>
+              <div className="form-group">
+                <label htmlFor="sede">Sede *</label>
+                <select
+                  id="sede"
+                  name="sede"
+                  value={formData.sede}
+                  onChange={handleChange}
+                  required
+                >
+                  <option value="">-- Selecciona una sede --</option>
+                  {SEDES.map((sede, index) => (
+                    <option key={`sede-${index}`} value={sede}>
+                      {sede}
+                    </option>
+                  ))}
+                </select>
               </div>
             </div>
 

@@ -53,7 +53,8 @@ export const solicitarFactura = async (payload) => {
     numeroTelefonico,
     monto,
     fecha,
-    metodoPago
+    metodoPago,
+    sede
   } = payload;
 
   const rfcNormalizado = normalizarRfc(rfc);
@@ -68,7 +69,8 @@ export const solicitarFactura = async (payload) => {
     monto: parseFloat(monto),
     fecha: fecha ? new Date(fecha) : null,
     createdAt: serverTimestamp(),
-    metodoPago: metodoPago
+    metodoPago: metodoPago,
+    sede
   };
 
   const facturaRef = await addDoc(collection(db, COLLECTION_FACTURAS), factura);
