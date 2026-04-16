@@ -15,6 +15,7 @@ const Registros = () => {
   const today = new Date();
   const [year, setYear] = useState(today.getFullYear());
   const [month, setMonth] = useState(today.getMonth() + 1);
+  const [sede, setSede] = useState('');
   const [facturas, setFacturas] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -28,6 +29,12 @@ const Registros = () => {
   const meses = [
     'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
     'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+  ];
+
+  const SEDES = [
+    'Tuxtla Gutierrez',
+    'Ocozocoautla',
+    'Externo'
   ];
 
   const handleLogout = async () => {
@@ -260,15 +267,18 @@ const Registros = () => {
     }
   };
 
+  // Filtrar facturas por sede
+  const facturasFiltradasPorSede = sede ? facturas.filter(f => f.sede === sede) : facturas;
+
+  const totalFacturas = facturasFiltradasPorSede.length;
+  const totalMonto = facturasFiltradasPorSede.reduce((sum, f) => sum + (f.monto || 0), 0);
+
   const formatMoney = (amount) => {
     return new Intl.NumberFormat('es-MX', {
       style: 'currency',
       currency: 'MXN'
     }).format(amount || 0);
   };
-
-  const totalFacturas = facturas.length;
-  const totalMonto = facturas.reduce((sum, f) => sum + (f.monto || 0), 0);
 
   return (
     <div className="registros-container">
@@ -322,6 +332,26 @@ const Registros = () => {
           </button>
         </div>
 
+        {/* Selector de Sede */}
+        <div className="sede-selector">
+          <label htmlFor="sede-filter" className="sede-label">
+            <i className="bi bi-building"></i> Sede:
+          </label>
+          <select
+            id="sede-filter"
+            className="sede-select"
+            value={sede}
+            onChange={(e) => setSede(e.target.value)}
+          >
+            <option value="">Todas las sedes</option>
+            {SEDES.map((sedeOption, index) => (
+              <option key={`sede-${index}`} value={sedeOption}>
+                {sedeOption}
+              </option>
+            ))}
+          </select>
+        </div>
+
         {/* Estadísticas */}
         <div className="registros-stats">
           <div className="stat-card">
@@ -371,7 +401,7 @@ const Registros = () => {
             </div>
           ) : (
             <div className="registros-grid">
-              {facturas.map((factura) => (
+              {facturasFiltradasPorSede.map((factura) => (
                 <div
                   key={factura.id}
                   className="registro-card"
@@ -465,6 +495,7 @@ const Registros = () => {
                               }
                               return d.toLocaleDateString('es-ES');
                             } catch (err) {
+                              console.error('Error formateando fecha de servicio:', err);
                               return '-';
                             }
                           })()
@@ -510,6 +541,15 @@ const Registros = () => {
                       </span>
                       <span className="value">
                         {factura.metodoPago || '-'}
+                      </span>
+                    </div>
+
+                    <div className="info-row">
+                      <span className="label">
+                        <i className="bi bi-building"></i> Sede
+                      </span>
+                      <span className="value">
+                        {factura.sede || '-'}
                       </span>
                     </div>
                   </div>
