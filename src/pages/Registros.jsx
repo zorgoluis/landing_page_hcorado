@@ -34,7 +34,7 @@ const Registros = () => {
   const SEDES = [
     'Tuxtla Gutierrez',
     'Ocozocoautla',
-    'Externo'
+    'Referidor'
   ];
 
   const handleLogout = async () => {

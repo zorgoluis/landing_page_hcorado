@@ -18,7 +18,7 @@ const METODO_PAGO = [
 const SEDES = [
   'Tuxtla Gutierrez',
   'Ocozocoautla',
-  'Externo'
+  'Referidor'
 ];
 
 const Facturacion = () => {
@@ -57,6 +57,13 @@ const Facturacion = () => {
       [name]: value
     }));
     setError('');
+  };
+
+  const handleMontoKeyDown = (e) => {
+    // Prevenir que se escriban punto (.) o coma (,)
+    if (e.key === '.' || e.key === ',') {
+      e.preventDefault();
+    }
   };
 
   const validateForm = () => {
@@ -105,8 +112,13 @@ const Facturacion = () => {
     }
 
     // Validación Monto
-    if (isNaN(formData.monto) || parseFloat(formData.monto) <= 0) {
+    const montoValue = parseFloat(formData.monto);
+    if (isNaN(montoValue) || montoValue <= 0) {
       setError('El monto debe ser un número mayor a 0.');
+      return false;
+    }
+    if (!Number.isInteger(montoValue)) {
+      setError('El monto debe ser un número entero sin decimales.');
       return false;
     }
 
@@ -376,8 +388,9 @@ const Facturacion = () => {
                     name="monto"
                     value={formData.monto}
                     onChange={handleChange}
-                    placeholder="0.00"
-                    step="0.01"
+                    onKeyDown={handleMontoKeyDown}
+                    placeholder="0"
+                    step="1"
                     min="0"
                     required
                   />
